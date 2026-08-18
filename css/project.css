@@ -1,0 +1,238 @@
+/* 
+   Precision Engine Project Details CSS - White Mode Edition
+   Styles specific to the project deep-dive pages, interactive diagrams, and steps
+*/
+
+.project-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--spacing-6);
+  border-bottom: 1px solid var(--border-ghost);
+  padding-bottom: var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+}
+
+.project-title-text {
+  font-size: var(--display-md);
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.project-actions {
+  display: flex;
+  gap: var(--spacing-4);
+}
+
+.section-block {
+  margin-bottom: var(--spacing-16);
+}
+
+.block-title {
+  font-size: var(--headline-md);
+  margin-bottom: var(--spacing-4);
+  color: var(--text-primary);
+  position: relative;
+  padding-bottom: var(--spacing-2);
+}
+
+.block-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-secondary);
+}
+
+.block-text {
+  font-size: var(--body-lg);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 850px;
+  margin-bottom: var(--spacing-8);
+}
+
+/* Diagram wrapper - Precision Engine light-slate dashboard style */
+.diagram-wrapper {
+  background-color: var(--surface-low);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-ghost);
+  padding: var(--spacing-8);
+  margin: var(--spacing-8) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  box-shadow: inset 0 2px 8px rgba(11, 28, 48, 0.03);
+}
+
+.architecture-diagram {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+/* Interactive Diagram Player controls */
+.diagram-player {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  width: 100%;
+}
+
+.diagram-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  justify-content: center;
+}
+
+.diagram-step-btn {
+  background: var(--surface-lowest);
+  border: 1px solid var(--border-ghost);
+  color: var(--text-secondary);
+  font-family: var(--font-headline);
+  font-size: var(--body-md);
+  font-weight: 500;
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.diagram-step-btn:hover {
+  background: var(--surface-medium);
+  color: var(--text-primary);
+}
+
+.diagram-step-btn.active {
+  background: var(--color-secondary);
+  color: var(--text-on-secondary);
+  border-color: var(--color-secondary);
+  box-shadow: 0 4px 12px rgba(0, 106, 97, 0.15);
+}
+
+.diagram-explanation {
+  background: var(--surface-lowest);
+  border-left: 4px solid var(--color-secondary);
+  padding: var(--spacing-4);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin-top: var(--spacing-2);
+  border-top: 1px solid var(--border-ghost);
+  border-right: 1px solid var(--border-ghost);
+  border-bottom: 1px solid var(--border-ghost);
+  transition: var(--transition-normal);
+}
+
+.diagram-explanation h5 {
+  font-family: var(--font-headline);
+  font-size: var(--body-lg);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-1);
+}
+
+.diagram-explanation p {
+  color: var(--text-secondary);
+  font-size: var(--body-md);
+  margin: 0;
+}
+
+/* SVG Active Node Styles & Pulse Keyframes */
+.svg-active-node {
+  stroke-width: 3px !important;
+  stroke: var(--color-secondary) !important;
+  filter: drop-shadow(0 0 8px rgba(0, 106, 97, 0.2));
+  animation: pulse-border 2s infinite alternate;
+}
+
+.svg-active-text {
+  fill: var(--color-secondary) !important;
+  font-weight: bold !important;
+}
+
+.svg-active-path {
+  stroke: var(--color-secondary) !important;
+  stroke-width: 3px !important;
+  stroke-dasharray: 6;
+  animation: dash 20s linear infinite;
+}
+
+@keyframes pulse-border {
+  from {
+    filter: drop-shadow(0 0 2px rgba(0, 106, 97, 0.2));
+  }
+  to {
+    filter: drop-shadow(0 0 10px rgba(0, 106, 97, 0.5));
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+/* Detail grid for backend architectural highlights */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-6);
+}
+
+@media(min-width: 768px) {
+  .detail-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.detail-card {
+  background-color: var(--surface-low);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-6);
+  border: 1px solid var(--border-ghost);
+  transition: var(--transition-normal);
+}
+
+.detail-card:hover {
+  background-color: var(--surface-lowest);
+  border-color: rgba(11, 28, 48, 0.15);
+  box-shadow: var(--shadow-ambient);
+}
+
+.detail-card h4 {
+  font-family: var(--font-headline);
+  font-size: var(--title-md);
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-2);
+}
+
+.detail-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: var(--body-md);
+}
+
+/* Prev/Next project navigation bar */
+.project-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-6) 0;
+  margin-top: var(--spacing-16);
+  border-top: 1px solid var(--border-ghost);
+}
+
+.project-nav-link {
+  font-family: var(--font-headline);
+  font-size: var(--title-md);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.project-nav-link:hover {
+  color: var(--color-secondary);
+}

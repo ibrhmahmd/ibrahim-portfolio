@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ibrahim Ahmed — Backend Systems & APIs</title>
+    <meta
+      name="description"
+      content="Ibrahim Ahmed builds backend systems, APIs, and tools that need to run reliably. .NET, Python, FastAPI, PostgreSQL."
+    />
+
+    <link rel="stylesheet" href="css/design-system.css" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- Inline styles for Hero specific visual aesthetics -->
+    <style>
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding-top: 80px;
+      }
+
+      /* Animated Light Gradient Mesh Background */
+      .hero-mesh {
+        position: absolute;
+        top: -20%;
+        left: -10%;
+        width: 130%;
+        height: 140%;
+        background:
+          radial-gradient(
+            circle at 10% 20%,
+            rgba(118, 113, 255, 0.04) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(0, 106, 97, 0.05) 0%,
+            transparent 50%
+          ),
+          radial-gradient(circle at 50% 50%, var(--bg-primary) 0%, #eff4ff 100%);
+        z-index: -2;
+      }
+
+      /* Code Grid/ASCII Decorative overlay */
+      .hero-grid {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+          linear-gradient(rgba(11, 28, 48, 0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(11, 28, 48, 0.02) 1px, transparent 1px);
+        background-size: 40px 40px;
+        z-index: -1;
+      }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    .hero-row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--spacing-8);
+    }
+
+      .hero-title {
+        font-size: var(--display-lg);
+        line-height: 1.1;
+        margin-bottom: var(--spacing-4);
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        color: var(--text-primary);
+      }
+
+      .hero-title span {
+        background: linear-gradient(
+          135deg,
+          var(--color-secondary) 30%,
+          var(--color-tertiary) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-tagline {
+        font-size: var(--body-lg);
+        color: var(--text-secondary);
+        margin-bottom: var(--spacing-8);
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+        animation-fill-mode: both;
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: var(--spacing-4);
+        flex-wrap: wrap;
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+        animation-fill-mode: both;
+      }
+
+      /* High density terminal preview component */
+    .home-terminal {
+      background-color: #0d1321;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.05);
+      font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+      width: 100%;
+      max-width: 1000px;
+      box-shadow: 0 20px 50px rgba(11, 28, 48, 0.15);
+      animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+      animation-fill-mode: both;
+      flex-shrink: 0;
+    }
+
+      .home-terminal-header {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-4);
+        padding: var(--spacing-3) var(--spacing-4);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .home-terminal-dots {
+        display: flex;
+        gap: 5px;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+      .dot-red {
+        background-color: #ff5f56;
+      }
+      .dot-yellow {
+        background-color: #ffbd2e;
+      }
+      .dot-green {
+        background-color: #27c93f;
+      }
+
+      .home-terminal-tabs {
+        display: flex;
+        gap: 2px;
+      }
+
+      .home-terminal-tab {
+        background: none;
+        border: none;
+        color: #64748b;
+        font-family: inherit;
+        font-size: 11px;
+        padding: 4px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+
+      .home-terminal-tab:hover {
+        color: #a5b4fc;
+      }
+
+      .home-terminal-tab.active {
+        color: #e2e8f0;
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .home-terminal-body {
+        padding: var(--spacing-4);
+        min-height: 350px;
+      }
+
+      .home-terminal-output {
+        font-size: 12px;
+        line-height: 1.7;
+        color: #a5b4fc;
+      }
+
+      .home-terminal-output p {
+        margin: 0 0 2px 0;
+      }
+
+      .t-prompt {
+        color: #89f5e7;
+        margin-right: 6px;
+      }
+      .t-cmd {
+        color: #4ade80;
+      }
+      .t-muted {
+        color: #64748b;
+      }
+      .t-hash {
+        color: #7671ff;
+        font-size: 11px;
+        margin-right: 6px;
+      }
+      .t-label {
+        color: #006a61;
+        font-weight: 600;
+        display: inline-block;
+        width: 100px;
+      }
+
+      .home-terminal-input-row {
+        display: flex;
+        align-items: center;
+        margin-top: var(--spacing-2);
+      }
+
+      .home-terminal-input {
+        background: none;
+        border: none;
+        color: #e2e8f0;
+        font-family: inherit;
+        font-size: 12px;
+        width: 100%;
+        outline: none;
+        caret-color: #89f5e7;
+      }
+
+      .home-terminal-input::placeholder {
+        color: #475569;
+      }
+
+      /* Neofetch layout */
+      .home-terminal-neofetch {
+        display: flex;
+        gap: var(--spacing-6);
+        align-items: flex-start;
+      }
+
+      .neofetch-ascii {
+        color: #006a61;
+        font-size: 11px;
+        line-height: 1.3;
+        margin: 0;
+        flex-shrink: 0;
+      }
+
+      .neofetch-info {
+        flex: 1;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container navbar-container">
+        <a href="index.html" class="logo">
+          <span>IBRAHIM</span><span class="logo-terminal">_AHMED</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects/index.html">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-mesh"></div>
+      <div class="hero-grid"></div>
+      <div class="container">
+        <div class="hero-row">
+          <div class="hero-content">
+            <h1 class="hero-title">Ibrahim Ahmed</h1>
+            <p class="hero-tagline" style="font-size: var(--headline-md); color: var(--text-primary); font-weight: 600; margin-bottom: var(--spacing-4);">
+              Backend systems, APIs, and tools that need to run.
+            </p>
+            <p class="hero-tagline">
+              I build full systems — databases, APIs, deployment, the whole thing. CRM platforms, AI inference stacks, document generators, games. If it needs to work reliably at scale, I'm interested.
+            </p>
+            <div class="hero-cta">
+              <a href="projects/index.html" class="btn btn-primary">See my work</a>
+            </div>
+            <p style="margin-top: var(--spacing-8); font-size: var(--body-md); color: var(--text-tertiary); letter-spacing: 0.5px;">
+              12+ projects · 42 repos · 94% test coverage
+            </p>
+          </div>
+
+          <!-- Tabbed Terminal -->
+          <div class="home-terminal" id="home-terminal">
+          <div class="home-terminal-header">
+            <div class="home-terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="home-terminal-tabs">
+              <button class="home-terminal-tab active" data-tab="terminal">
+                Terminal
+              </button>
+              <button class="home-terminal-tab" data-tab="activity">
+                Activity
+              </button>
+              <button class="home-terminal-tab" data-tab="system">
+                System
+              </button>
+            </div>
+          </div>
+
+          <!-- Tab: Interactive Terminal -->
+          <div class="home-terminal-body" id="tab-terminal">
+            <div class="home-terminal-output" id="terminal-output">
+              <p>
+                <span class="t-muted"
+                  >Welcome. Type <span class="t-cmd">help</span> to see
+                  available commands.</span
+                >
+              </p>
+            </div>
+            <div class="home-terminal-input-row">
+              <span class="t-prompt">$</span>
+              <input
+                type="text"
+                id="terminal-input"
+                class="home-terminal-input"
+                placeholder="type a command..."
+                autocomplete="off"
+                spellcheck="false"
+              />
+            </div>
+          </div>
+
+          <!-- Tab: Activity -->
+          <div
+            class="home-terminal-body"
+            id="tab-activity"
+            style="display: none"
+          >
+            <div class="home-terminal-output">
+              <p>
+                <span class="t-muted">Recent commits across repositories</span>
+              </p>
+              <p>
+                <span class="t-hash">a3f1c2e</span>
+                <span class="t-cmd">certificate-gen</span> Add audit trail
+                endpoint
+              </p>
+              <p>
+                <span class="t-hash">b7d4e1a</span>
+                <span class="t-cmd">techno-terminal</span> Fix certificate
+                service batch processing
+              </p>
+              <p>
+                <span class="t-hash">e2c8f09</span>
+                <span class="t-cmd">ollamanet</span> Add SSE streaming to
+                inference service
+              </p>
+              <p>
+                <span class="t-hash">f1a9c3d</span>
+                <span class="t-cmd">student-profiles</span> Add RTL bilingual
+                rendering support
+              </p>
+              <p>
+                <span class="t-hash">c5b2d7e</span>
+                <span class="t-cmd">ibn-battota-game</span> Add mission overlay
+                for Cairo level
+              </p>
+              <p>
+                <span class="t-hash">d8e3a1f</span>
+                <span class="t-cmd">neostreamjs</span> Fix WebSocket
+                reconnection logic
+              </p>
+              <p>
+                <span class="t-hash">9c4f6b2</span>
+                <span class="t-cmd">techno-terminal</span> Add Celery worker
+                health checks
+              </p>
+              <p>
+                <span class="t-hash">1a7e5c8</span>
+                <span class="t-cmd">certificate-gen</span> Implement QR code
+                verification flow
+              </p>
+              <p>
+                <span class="t-hash">4f2b9d1</span>
+                <span class="t-cmd">ollamanet</span> Configure ngrok tunnel
+                registry
+              </p>
+              <p>
+                <span class="t-hash">6e8c3a5</span>
+                <span class="t-cmd">student-profiles</span> Add SVG radar chart
+                generation
+              </p>
+            </div>
+          </div>
+
+          <!-- Tab: System -->
+          <div class="home-terminal-body" id="tab-system" style="display: none">
+            <div class="home-terminal-output home-terminal-neofetch">
+              <pre class="neofetch-ascii">
+   ╔══════════╗
+   ║  ██╗  ██ ║
+   ║  ██║  ██ ║
+   ║  ███████ ║
+   ║  ██╔══██ ║
+   ║  ██║  ██ ║
+   ╚══════════╝</pre
+              >
+              <div class="neofetch-info">
+                <p><span class="t-label">OS</span> Windows 11 + Linux (WSL)</p>
+                <p><span class="t-label">Editor</span> VS Code + Cursor</p>
+                <p><span class="t-label">Shell</span> PowerShell + Bash</p>
+                <p>
+                  <span class="t-label">Languages</span> C#, Python, TypeScript,
+                  SQL
+                </p>
+                <p>
+                  <span class="t-label">Frameworks</span> .NET 9, FastAPI,
+                  Pygame Zero
+                </p>
+                <p>
+                  <span class="t-label">Databases</span> PostgreSQL, SQL Server,
+                  Redis
+                </p>
+                <p>
+                  <span class="t-label">Infra</span> Docker, RabbitMQ, ngrok
+                </p>
+                <p>
+                  <span class="t-label">AI</span> Semantic Kernel, Ollama,
+                  Pinecone
+                </p>
+                <p>
+                  <span class="t-label">Uptime</span> 3+ years building backend
+                  systems
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Work -->
+    <section
+      class="section reveal"
+      style="
+        background-color: var(--surface-low);
+        border-top: 1px solid var(--border-ghost);
+      "
+    >
+      <div class="container">
+        <h2 class="section-title" style="margin-bottom: var(--spacing-2)">
+          Selected Work
+        </h2>
+        <p class="section-subtitle" style="margin-bottom: var(--spacing-10)">
+          Projects I built end-to-end.
+        </p>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-6);
+          "
+        >
+          <!-- Techno Terminal -->
+          <a
+            href="projects/techno-terminal.html"
+            class="project-card"
+            style="text-decoration: none; color: inherit"
+          >
+            <div class="project-card-body">
+              <h3 class="project-card-title">Techno Terminal</h3>
+              <p class="project-card-date">Jan 2026</p>
+              <p class="project-card-excerpt">
+                CRM monolith for academy operations. Student management,
+                certificate service, real-time dashboards. 840 tests at 94%
+                coverage.
+              </p>
+              <div class="badge-group" style="margin-top: var(--spacing-3)">
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-fastapi"></span>FastAPI</span
+                >
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-sqlmodel"></span
+                  >SQLModel</span
+                >
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-docker"></span>Docker</span
+                >
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-celery"></span>Celery</span
+                >
+              </div>
+            </div>
+          </a>
+
+          <!-- OllamaNet -->
+          <a
+            href="projects/ollamanet.html"
+            class="project-card"
+            style="text-decoration: none; color: inherit"
+          >
+            <div class="project-card-body">
+              <h3 class="project-card-title">OllamaNet</h3>
+              <p class="project-card-date">Jun 2025</p>
+              <p class="project-card-excerpt">
+                Local AI inference stack. 4 microservices with RabbitMQ, Redis
+                caching, PostgreSQL storage, and real-time SSE streaming.
+              </p>
+              <div class="badge-group" style="margin-top: var(--spacing-3)">
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-dotnet"></span>.NET 9</span
+                >
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-rabbitmq"></span
+                  >RabbitMQ</span
+                >
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-redis"></span>Redis</span
+                >
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-docker"></span>Docker</span
+                >
+              </div>
+            </div>
+          </a>
+
+          <!-- Certificate Generator -->
+          <a
+            href="projects/certificate-generator.html"
+            class="project-card"
+            style="text-decoration: none; color: inherit"
+          >
+            <div class="project-card-body">
+              <h3 class="project-card-title">Certificate Generator</h3>
+              <p class="project-card-date">Jul 2026</p>
+              <p class="project-card-excerpt">
+                Internal tool for academy events. PDF rendering with QR
+                verification, HTML templates via Jinja2, full audit trail.
+              </p>
+              <div class="badge-group" style="margin-top: var(--spacing-3)">
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-fastapi"></span>FastAPI</span
+                >
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-sqlmodel"></span
+                  >SQLModel</span
+                >
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-playwright"></span
+                  >Playwright</span
+                >
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-jinja"></span>Jinja2</span
+                >
+              </div>
+            </div>
+          </a>
+
+          <!-- Student Profiles -->
+          <a
+            href="projects/student-profiles.html"
+            class="project-card"
+            style="text-decoration: none; color: inherit"
+          >
+            <div class="project-card-body">
+              <h3 class="project-card-title">Student Profiles</h3>
+              <p class="project-card-date">Jul 2026</p>
+              <p class="project-card-excerpt">
+                Bilingual document generator (EN/AR) for competition teams.
+                Playwright PDF rendering with RTL support and Excel data source.
+              </p>
+              <div class="badge-group" style="margin-top: var(--spacing-3)">
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-python"></span>Python</span
+                >
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-playwright"></span
+                  >Playwright</span
+                >
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-streamlit"></span
+                  >Streamlit</span
+                >
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-jinja"></span>Jinja2</span
+                >
+              </div>
+            </div>
+          </a>
+
+          <!-- Ibn Battota Game -->
+          <a
+            href="projects/ibn-battota-game.html"
+            class="project-card"
+            style="text-decoration: none; color: inherit"
+          >
+            <div class="project-card-body">
+              <h3 class="project-card-title">Ibn Battuta Game</h3>
+              <p class="project-card-date">Jan 2026</p>
+              <p class="project-card-excerpt">
+                Historical exploration game. 5 cities across North Africa and
+                the Middle East, world map navigation, mission system, and
+                audio.
+              </p>
+              <div class="badge-group" style="margin-top: var(--spacing-3)">
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-python"></span>Python</span
+                >
+                <span class="badge badge-tech"
+                  ><span class="tech-icon tech-dot-python"></span>Pygame
+                  Zero</span
+                >
+                <span class="badge badge-pattern">2D Game Dev</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-socials">
+          <a href="https://github.com/ibrhmahmd" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/Ibrhmahmd" target="_blank"
+            >LinkedIn</a
+          >
+          <a href="https://medium.com/@ibrhmahmd" target="_blank">Medium</a>
+          <a href="mailto:ibrahim.ahmd.net@gmail.com">Email</a>
+        </div>
+        <p>
+          &copy; 2026 Ibrahim Ahmed. Built in conformance with the Precision
+          Engine Design System.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+      (function () {
+        const terminal = document.getElementById("home-terminal");
+        if (!terminal) return;
+
+        // Tab switching
+        const tabs = terminal.querySelectorAll(".home-terminal-tab");
+        const bodies = {
+          terminal: document.getElementById("tab-terminal"),
+          activity: document.getElementById("tab-activity"),
+          system: document.getElementById("tab-system"),
+        };
+
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            tabs.forEach((t) => t.classList.remove("active"));
+            tab.classList.add("active");
+            const target = tab.getAttribute("data-tab");
+            Object.values(bodies).forEach((b) => (b.style.display = "none"));
+            bodies[target].style.display = "";
+            if (target === "terminal") input.focus();
+          });
+        });
+
+        // Interactive terminal
+        const input = document.getElementById("terminal-input");
+        const output = document.getElementById("terminal-output");
+        const history = [];
+        let historyIdx = -1;
+
+        const commands = {
+          help: () => [
+            '<span class="t-muted">Available commands:</span>',
+            '  <span class="t-cmd">about</span>      Who I am',
+            '  <span class="t-cmd">projects</span>   Key projects',
+            '  <span class="t-cmd">skills</span>     Tech stack',
+            '  <span class="t-cmd">contact</span>    How to reach me',
+            '  <span class="t-cmd">clear</span>      Clear terminal',
+          ],
+          about: () => [
+            "Ibrahim Ahmed — Backend Engineer",
+            "I build full systems end-to-end:",
+            "databases, APIs, deployment.",
+            "CRM platforms, AI inference stacks,",
+            "document generators, games.",
+          ],
+          projects: () => [
+            '<span class="t-cmd">techno-terminal/</span>   CRM, 840 tests, 94% coverage',
+            '<span class="t-cmd">ollamanet/</span>         AI inference, 4 microservices',
+            '<span class="t-cmd">certificate-gen/</span>   QR certs, audit trail',
+            '<span class="t-cmd">student-profiles/</span>  Bilingual doc gen, EN/AR',
+            '<span class="t-cmd">ibn-battota-game/</span> 5 cities, Pygame Zero',
+            '<span class="t-cmd">neostream/</span>         Reactive web framework',
+          ],
+          skills: () => [
+            "C#  Python  TypeScript  SQL",
+            ".NET 9  FastAPI  ASP.NET Core  Node.js",
+            "PostgreSQL  SQL Server  Redis",
+            "Docker  RabbitMQ  Celery",
+            "Semantic Kernel  Ollama  Pinecone",
+            "Playwright  Pygame Zero  Streamlit",
+          ],
+          contact: () => [
+            'Email:  <span class="t-cmd">ibrahim.ahmd.net@gmail.com</span>',
+            'GitHub: <span class="t-cmd">github.com/ibrhmahmd</span>',
+            'LinkedIn: <span class="t-cmd">linkedin.com/in/Ibrhmahmd</span>',
+            'Medium: <span class="t-cmd">medium.com/@ibrhmahmd</span>',
+          ],
+          clear: () => {
+            output.innerHTML = "";
+            return null;
+          },
+        };
+
+        function runCommand(cmd) {
+          const trimmed = cmd.trim().toLowerCase();
+          if (!trimmed) return;
+
+          history.push(trimmed);
+          historyIdx = history.length;
+
+          // Echo the command
+          const echo = document.createElement("p");
+          echo.innerHTML = '<span class="t-prompt">$</span> ' + trimmed;
+          output.appendChild(echo);
+
+          const fn = commands[trimmed];
+          if (fn) {
+            const result = fn();
+            if (result) {
+              result.forEach((line) => {
+                const p = document.createElement("p");
+                p.innerHTML = line;
+                output.appendChild(p);
+              });
+            }
+          } else if (trimmed) {
+            const p = document.createElement("p");
+            p.innerHTML =
+              '<span class="t-muted">command not found: ' +
+              trimmed +
+              '. Type <span class="t-cmd">help</span></span>';
+            output.appendChild(p);
+          }
+
+          output.scrollTop = output.scrollHeight;
+        }
+
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            runCommand(input.value);
+            input.value = "";
+          } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            if (historyIdx > 0) {
+              historyIdx--;
+              input.value = history[historyIdx];
+            }
+          } else if (e.key === "ArrowDown") {
+            e.preventDefault();
+            if (historyIdx < history.length - 1) {
+              historyIdx++;
+              input.value = history[historyIdx];
+            } else {
+              historyIdx = history.length;
+              input.value = "";
+            }
+          }
+        });
+
+        // Focus input on terminal click
+        terminal.addEventListener("click", () => {
+          if (bodies.terminal.style.display !== "none") input.focus();
+        });
+      })();
+    </script>
+  </body>
+</html>

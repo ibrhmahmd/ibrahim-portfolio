@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project: WPF Tetris Game — Ibrahim Ahmed</title>
+  <meta name="description" content="Technical deep dive of WPF Tetris Game, a C# desktop game with Model-View separation and state machines.">
+  
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/project.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="../index.html" class="logo">
+        <span>IBRAHIM</span><span class="logo-terminal">_AHMED</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="index.html" class="active">Projects</a></li>
+        <li><a href="../skills.html">Skills</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Project Header -->
+  <section class="section" style="padding-top: 120px; padding-bottom: 40px;">
+    <div class="container">
+      <div class="project-header-row">
+        <div>
+          <h1 class="project-title-text">WPF Tetris Game</h1>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-weight: 500; margin-bottom: var(--spacing-4);">
+            C# Desktop Game with State Machine Architecture
+          </p>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/ibrhmahmd/WPF-Tetris-Game" target="_blank" class="btn btn-secondary">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+      
+      <div class="badge-group" style="margin-top: var(--spacing-4);">
+        <span class="badge badge-tech"><span class="tech-icon tech-dot-csharp"></span>C#</span>
+        <span class="badge badge-tech"><span class="tech-icon tech-dot-wpf"></span>WPF</span>
+        <span class="badge badge-tech"><span class="tech-icon tech-dot-xaml"></span>XAML</span>
+        <span class="badge badge-tech"><span class="tech-icon tech-dot-dotnet"></span>.NET</span>
+        <span class="badge badge-pattern">State Machine</span>
+        <span class="badge badge-pattern">Factory Method</span>
+        <span class="badge badge-pattern">MVP Pattern</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Details & Diagram -->
+  <section class="section" style="background-color: var(--surface-lowest); border-top: 1px solid var(--border-ghost);">
+    <div class="container">
+      
+      <!-- System Architecture Section -->
+      <div class="section-block">
+        <h2 class="block-title">System Architecture</h2>
+        <p class="block-text">
+          This Tetris implementation follows <strong>Model-View separation</strong> with a clean MVP architecture. The game logic runs in a state machine pattern, while block generation uses the Factory Method pattern for flexible piece creation.
+        </p>
+        
+        <!-- SVG Diagram Container -->
+        <div class="diagram-wrapper">
+          <div class="diagram-player">
+            <div class="diagram-controls">
+              <button class="diagram-step-btn active" 
+                      data-title="Game Loop" 
+                      data-desc="State machine drives the main game loop with input processing and physics updates."
+                      data-nodes="game-loop,state-machine"
+                      data-paths="path-loop-state">
+                Step 1: Game Loop
+              </button>
+              <button class="diagram-step-btn" 
+                      data-title="Block Generation" 
+                      data-desc="Factory Method creates random Tetris pieces and spawns them at the top."
+                      data-nodes="factory,piece-pool"
+                      data-paths="path-factory-pool">
+                Step 2: Spawn
+              </button>
+              <button class="diagram-step-btn" 
+                      data-title="Render & Collision" 
+                      data-desc="View renders the board state and handles collision detection for placed pieces."
+                      data-nodes="view,collision-detector"
+                      data-paths="path-state-view, path-view-collision">
+                Step 3: Render
+              </button>
+            </div>
+            <div class="diagram-explanation">
+              <h5>Game Loop</h5>
+              <p>State machine drives the main game loop with input processing and physics updates.</p>
+            </div>
+          </div>
+          
+          <svg class="architecture-diagram" viewBox="0 0 800 400" width="100%" height="auto">
+            <defs>
+              <marker id="arrowT_tetris" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0,0 L 8,4 L 0,8 Z" fill="#006a61" /></marker>
+            </defs>
+            <rect width="800" height="400" fill="#f8f9ff" rx="6" />
+            <path d="M 0,50 L 800,50 M 0,100 L 800,100 M 0,150 L 800,150 M 0,200 L 800,200 M 0,250 L 800,250 M 0,300 L 800,300 M 0,350 L 800,350" stroke="#e5eeff" stroke-width="0.5" />
+            <path d="M 100,0 L 100,400 M 200,0 L 200,400 M 300,0 L 300,400 M 400,0 L 400,400 M 500,0 L 500,400 M 600,0 L 600,400 M 700,0 L 700,400" stroke="#e5eeff" stroke-width="0.5" />
+
+            <!-- Game Loop -->
+            <rect id="game-loop" x="30" y="100" width="140" height="100" fill="#ffffff" stroke="#006a61" stroke-width="2" rx="6" />
+            <text x="100" y="135" fill="#0b1c30" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="14" text-anchor="middle">Game Loop</text>
+            <text x="100" y="160" fill="#006a61" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">60 FPS Timer</text>
+            <text x="100" y="180" fill="#45464d" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Input Processing</text>
+
+            <!-- State Machine -->
+            <rect id="state-machine" x="30" y="250" width="140" height="100" fill="#ffffff" stroke="#7671ff" stroke-width="2" rx="6" />
+            <text x="100" y="285" fill="#0b1c30" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="14" text-anchor="middle">State Machine</text>
+            <text x="100" y="310" fill="#7671ff" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">Playing / Paused</text>
+            <text x="100" y="330" fill="#45464d" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Game Over</text>
+
+            <!-- Factory -->
+            <rect id="factory" x="240" y="100" width="140" height="100" fill="#ffffff" stroke="#006a61" stroke-width="2" rx="6" />
+            <text x="310" y="135" fill="#0b1c30" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="14" text-anchor="middle">Piece Factory</text>
+            <text x="310" y="160" fill="#006a61" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">Random Generator</text>
+            <text x="310" y="180" fill="#45464d" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">7 Tetrominos</text>
+
+            <!-- Piece Pool -->
+            <rect id="piece-pool" x="240" y="250" width="140" height="80" fill="#ffffff" stroke="#7671ff" stroke-width="2" rx="6" />
+            <text x="310" y="280" fill="#0b1c30" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="12" text-anchor="middle">Piece Pool</text>
+            <text x="310" y="305" fill="#45464d" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Active & Next</text>
+
+            <!-- View -->
+            <rect id="view" x="460" y="100" width="140" height="120" fill="#ffffff" stroke="#006a61" stroke-width="2" rx="6" />
+            <text x="530" y="130" fill="#0b1c30" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="14" text-anchor="middle">WPF View</text>
+            <text x="530" y="155" fill="#006a61" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">XAML Grid</text>
+            <text x="530" y="180" fill="#45464d" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Canvas Rendering</text>
+            <text x="530" y="200" fill="#45464d" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Score Display</text>
+
+            <!-- Collision Detector -->
+            <rect id="collision-detector" x="460" y="270" width="140" height="80" fill="#ffffff" stroke="#7671ff" stroke-width="2" rx="6" />
+            <text x="530" y="300" fill="#0b1c30" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="12" text-anchor="middle">Collision</text>
+            <text x="530" y="325" fill="#45464d" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Boundary Check</text>
+
+            <!-- Board State -->
+            <rect x="660" y="150" width="110" height="100" fill="#ffffff" stroke="#006a61" stroke-width="2" rx="6" />
+            <text x="715" y="185" fill="#0b1c30" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="12" text-anchor="middle">Board State</text>
+            <text x="715" y="210" fill="#006a61" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">10x20 Grid</text>
+            <text x="715" y="230" fill="#45464d" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Matrix Store</text>
+
+            <!-- Connection Paths -->
+            <path id="path-loop-state" d="M 100,200 L 100,250" stroke="#006a61" stroke-width="2" stroke-dasharray="5"  marker-end="url(#arrowT_tetris)"/>
+            
+            <path id="path-factory-pool" d="M 310,200 L 310,250" stroke="#7671ff" stroke-width="2" />
+            
+            <path id="path-state-view" d="M 170,200 L 200,200 L 200,80 L 460,80 L 460,100" stroke="#006a61" stroke-width="2"  marker-end="url(#arrowT_tetris)"/>
+            <text x="300" y="290" fill="#006a61" font-family="monospace" font-size="10" text-anchor="middle">State</text>
+            
+            <path id="path-view-collision" d="M 530,220 L 530,270" stroke="#7671ff" stroke-width="2" />
+            
+            <path d="M 600,200 L 660,200" stroke="#006a61" stroke-width="2" stroke-dasharray="3"  marker-end="url(#arrowT_tetris)"/>
+          </svg>
+        </div>
+      </div>
+      
+      <!-- Key Implementations -->
+      <div class="section-block">
+        <h2 class="block-title">Technical Deep-Dive</h2>
+        
+        <div class="detail-grid">
+          
+          <div class="detail-card">
+            <h4>01. State Machine Pattern</h4>
+            <p>
+              Implemented a <strong>finite state machine</strong> managing game states (Playing, Paused, Game Over) with clean transitions and state-specific behavior.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <h4>02. Factory Method</h4>
+            <p>
+              Used <strong>Factory Method pattern</strong> to generate random Tetris pieces, allowing easy extension for new piece types or custom generation rules.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <h4>03. MVP Architecture</h4>
+            <p>
+              Separated <strong>Model-View-Presenter</strong> concerns with clean interfaces, making the game logic testable independently of the WPF rendering layer.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <h4>04. XAML Data Binding</h4>
+            <p>
+              Leveraged <strong>WPF data binding</strong> and INotifyPropertyChanged to synchronize the game board matrix with the visual grid display.
+            </p>
+          </div>
+          
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Prev/Next Navigation -->
+  <section class="section">
+    <div class="container">
+      <div class="project-nav-bar">
+        <a href="youtube-downloader.html" class="project-nav-link">&larr; YouTube Downloader</a>
+        <a href="genetic-algorithm.html" class="project-nav-link">Genetic Algorithm &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-socials">
+        <a href="https://github.com/ibrhmahmd" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/Ibrhmahmd" target="_blank">LinkedIn</a>
+        <a href="https://medium.com/@ibrhmahmd" target="_blank">Medium</a>
+        <a href="mailto:ibrahim.ahmd.net@gmail.com">Email</a>
+      </div>
+      <p>&copy; 2026 Ibrahim Ahmed. Built in conformance with the Precision Engine Design System.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

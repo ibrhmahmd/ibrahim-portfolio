@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me — Ibrahim Ahmed</title>
+    <meta
+      name="description"
+      content="Learn more about Ibrahim Ahmed, Software Engineer specializing in backend architectures, systems engineering, and instructors leadership."
+    />
+
+    <link rel="stylesheet" href="css/design-system.css" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <style>
+      /* Timeline component */
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: var(--spacing-8) 0;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 31px;
+        width: 2px;
+        background-color: var(--surface-high);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: var(--spacing-10);
+        padding-left: var(--spacing-16);
+      }
+
+      .timeline-badge {
+        position: absolute;
+        left: 20px;
+        top: 4px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: var(--bg-primary);
+        border: 3px solid var(--color-secondary);
+        z-index: 10;
+        transition: var(--transition-fast);
+      }
+
+      .timeline-item:hover .timeline-badge {
+        background-color: var(--color-secondary-bg);
+        box-shadow: 0 0 10px rgba(0, 106, 97, 0.2);
+      }
+
+      .timeline-date {
+        font-family: var(--font-headline);
+        font-size: var(--label-sm);
+        font-weight: 600;
+        color: var(--color-secondary);
+        margin-bottom: var(--spacing-1);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .timeline-title {
+        font-size: var(--title-lg);
+        margin-bottom: var(--spacing-1);
+        color: var(--text-primary);
+      }
+
+      .timeline-subtitle {
+        font-size: var(--body-md);
+        color: var(--text-secondary);
+        margin-bottom: var(--spacing-4);
+        font-weight: 500;
+      }
+
+      .timeline-content {
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .timeline-content ul {
+        margin-top: var(--spacing-2);
+        padding-left: var(--spacing-4);
+        list-style-type: square;
+      }
+
+      .timeline-content li {
+        margin-bottom: var(--spacing-1);
+      }
+
+      /* Bio Grid layout */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-12);
+        align-items: start;
+      }
+
+      @media (min-width: 992px) {
+        .about-grid {
+          grid-template-columns: 2fr 1fr;
+        }
+      }
+
+      .bio-text p {
+        font-size: var(--body-lg);
+        color: var(--text-secondary);
+        margin-bottom: var(--spacing-6);
+        line-height: 1.8;
+      }
+
+      .bio-quote {
+        border-left: 4px solid var(--color-secondary);
+        padding-left: var(--spacing-6);
+        margin: var(--spacing-8) 0;
+        font-style: italic;
+        font-size: var(--title-lg);
+        color: var(--text-primary);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container navbar-container">
+        <a href="index.html" class="logo">
+          <span>IBRAHIM</span><span class="logo-terminal">_AHMED</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="projects/index.html">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- About Header -->
+    <section class="section" style="padding-top: 120px; padding-bottom: 60px">
+      <div class="container">
+        <h1 class="section-title">About Me</h1>
+        <p class="section-subtitle">
+          A deep dive into my career trajectory, software values, and
+          milestones.
+        </p>
+      </div>
+    </section>
+
+    <!-- Bio & Core Values Section -->
+    <section
+      class="section"
+      style="
+        background-color: var(--surface-lowest);
+        border-top: 1px solid var(--border-ghost);
+      "
+    >
+      <div class="container">
+        <div class="about-grid">
+          <div class="bio-text">
+            <p>
+              I am a Software Engineer who specializes in building modular,
+              resilient backend systems and deploying scalable integrations. My
+              engineering philosophy revolves around Clean Architecture, robust
+              design patterns, and strict testing practices to deliver platforms
+              that are simple to reason about and reliable to run.
+            </p>
+            <p>
+              Currently, I work as a Full-Stack Software Engineer at
+              <strong>Techno Future</strong>, where I pioneered
+              <strong>Techno Terminal</strong>—a custom modular FastAPI &
+              PostgreSQL CRM monolith spanning 11 domain modules with isolated
+              business rules, repository patterns, and a mocked JWT testing
+              pipeline that maintains a 94% coverage index.
+            </p>
+            <div class="bio-quote">
+              "We build hierarchy and clarity through tonal layers, not borders;
+              we build systems through decoupled concerns, not monolith
+              clusters."
+            </div>
+            <p>
+              Before transitioning fully to engineering, I led curriculum design
+              and code reviews for over 5 technology tracks as the Head of
+              Instructors at Techno Future, managing a team of 5+ educators and
+              mentoring students to top competitive ranks. This blend of
+              leadership, mentoring, and system design allows me to translate
+              complex requirements into clean architectures while maintaining
+              clear alignment with product goals.
+            </p>
+          </div>
+
+          <!-- Info Panel card -->
+          <div
+            class="card"
+            style="
+              background-color: var(--surface-low);
+              border: 1px solid var(--border-ghost);
+            "
+          >
+            <h3
+              style="
+                margin-bottom: var(--spacing-4);
+                color: var(--color-secondary);
+                border-bottom: 1px solid var(--border-ghost);
+                padding-bottom: var(--spacing-2);
+              "
+            >
+              Metadata
+            </h3>
+            <ul style="list-style: none; space-y: var(--spacing-4)">
+              <li style="margin-bottom: var(--spacing-4)">
+                <span
+                  style="
+                    color: var(--text-muted);
+                    display: block;
+                    font-size: var(--label-sm);
+                    text-transform: uppercase;
+                  "
+                  >Location</span
+                >
+                <strong
+                  style="color: var(--text-primary); font-size: var(--body-lg)"
+                  >Egypt (Open to Remote / Relocation)</strong
+                >
+              </li>
+              <li style="margin-bottom: var(--spacing-4)">
+                <span
+                  style="
+                    color: var(--text-muted);
+                    display: block;
+                    font-size: var(--label-sm);
+                    text-transform: uppercase;
+                  "
+                  >Primary Languages</span
+                >
+                <strong
+                  style="color: var(--text-primary); font-size: var(--body-lg)"
+                  >Python, C#, JavaScript, SQL, C</strong
+                >
+              </li>
+              <li style="margin-bottom: var(--spacing-4)">
+                <span
+                  style="
+                    color: var(--text-muted);
+                    display: block;
+                    font-size: var(--label-sm);
+                    text-transform: uppercase;
+                  "
+                  >Core Interests</span
+                >
+                <strong
+                  style="color: var(--text-primary); font-size: var(--body-lg)"
+                  >Distributed Systems, API Design, Microservices, RAG & AI
+                  Orchestration</strong
+                >
+              </li>
+              <li>
+                <span
+                  style="
+                    color: var(--text-muted);
+                    display: block;
+                    font-size: var(--label-sm);
+                    text-transform: uppercase;
+                  "
+                  >Education</span
+                >
+                <strong
+                  style="color: var(--text-primary); font-size: var(--body-lg)"
+                  >B.Sc. Computer Science (2021-2025)</strong
+                >
+              </li>
+              <li style="margin-top: var(--spacing-6)">
+                <a
+                  href="Ibrahim.Ahmed.net.resume.pdf"
+                  target="_blank"
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: var(--spacing-2);
+                    font-family: var(--font-headline);
+                    font-size: var(--body-md);
+                    font-weight: 600;
+                    color: var(--color-secondary);
+                    text-decoration: none;
+                    padding: var(--spacing-3) var(--spacing-5);
+                    background: var(--color-secondary-bg);
+                    border-radius: var(--radius-md);
+                    border: 1px solid var(--border-ghost);
+                    transition: var(--transition-normal);
+                  "
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"
+                    />
+                    <path
+                      d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"
+                    />
+                  </svg>
+                  Download Resume
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Career Timeline Section -->
+    <section class="section">
+      <div class="container">
+        <h2
+          class="section-title"
+          style="
+            text-align: center;
+            display: block;
+            margin-bottom: var(--spacing-12);
+          "
+        >
+          Career Journey
+        </h2>
+
+        <div class="timeline">
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-badge"></div>
+            <div class="timeline-date">Dec 2025 — Present</div>
+            <h3 class="timeline-title">Full-Stack Software Engineer</h3>
+            <div class="timeline-subtitle">Techno Future Academy</div>
+            <div class="timeline-content">
+              Pioneered and built <strong>Techno Terminal</strong>, the core CRM
+              & operations platform managing student lifecycles, financial
+              ledgers, and academic analytics.
+              <ul>
+                <li>
+                  Architected modular FastAPI monolith (10 domain modules)
+                  enforcing unit-of-work, repositories, and stateless DI.
+                </li>
+                <li>
+                  Engineered custom PostgreSQL schemas with analytical views,
+                  tracking ledgers, and alembic migrations.
+                </li>
+                <li>
+                  Authored a test suite of 840 automated tests with
+                  transaction-isolated fixtures maintaining 94% coverage.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-badge"></div>
+            <div class="timeline-date">Mar 2025 — Dec 2025</div>
+            <h3 class="timeline-title">
+              Head of Instructors / Software Instructor
+            </h3>
+            <div class="timeline-subtitle">Techno Future Academy</div>
+            <div class="timeline-content">
+              Promoted to lead the instructional team within 9 months based on
+              curriculum design and leadership.
+              <ul>
+                <li>
+                  Managed 5+ instructors and designed curriculum pipelines
+                  across Database, Python, C#, and APIs.
+                </li>
+                <li>
+                  Mentored students to win top 4 positions in the Afro-Asian
+                  Technology Competition.
+                </li>
+                <li>
+                  Led technical assessments and code audits across student
+                  projects.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-badge"></div>
+            <div class="timeline-date">Oct 2024 — June 2025</div>
+            <h3 class="timeline-title">Prompt Engineer & Evaluator</h3>
+            <div class="timeline-subtitle">Outlier.ai (Remote Contractor)</div>
+            <div class="timeline-content">
+              Evaluated LLM code output, designed evaluation pipelines, and
+              generated adversarial prompts to stress-test generative models in
+              software domains.
+            </div>
+          </div>
+
+          <!-- Timeline Item 4 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-badge"></div>
+            <div class="timeline-date">2024 — May 2025</div>
+            <h3 class="timeline-title">Freelance .NET Backend Engineer</h3>
+            <div class="timeline-subtitle">Self-Employed (Remote)</div>
+            <div class="timeline-content">
+              Built scalable C# APIs for various clients, implementing clean
+              repository architectures and optimizing DB operations via Entity
+              Framework Core.
+            </div>
+          </div>
+
+          <!-- Timeline Item 5 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-badge"></div>
+            <div class="timeline-date">2021 — 2025</div>
+            <h3 class="timeline-title">B.Sc. in Computer Science</h3>
+            <div class="timeline-subtitle">Kafr El-Sheikh University</div>
+            <div class="timeline-content">
+              Graduated from the Faculty of Computer Science. Courses in Data
+              Structures, Algorithms, Software Engineering, Networks, and AI.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section
+      class="section reveal"
+      style="
+        background: linear-gradient(
+          135deg,
+          var(--color-secondary) 0%,
+          #004d46 100%
+        );
+        border-top: 1px solid var(--border-ghost);
+      "
+    >
+      <div
+        class="container"
+        style="text-align: center; padding: var(--spacing-12) var(--spacing-8)"
+      >
+        <h2
+          style="
+            font-size: var(--headline-md);
+            color: var(--text-on-secondary);
+            margin-bottom: var(--spacing-4);
+          "
+        >
+          Interested in Working Together?
+        </h2>
+        <!-- <p style="font-size: var(--body-lg); color: rgba(255,255,255,0.85); margin-bottom: var(--spacing-6); max-width: 500px; margin-left: auto; margin-right: auto;">
+        I'm always open to discussing new projects and opportunities.
+      </p> -->
+        <a
+          href="mailto:ibrahim.ahmd.net@gmail.com"
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            font-family: var(--font-headline);
+            font-size: var(--title-lg);
+            font-weight: 600;
+            color: var(--text-on-secondary);
+            text-decoration: none;
+            padding: var(--spacing-4) var(--spacing-8);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: var(--transition-normal);
+          "
+        >
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
+            />
+          </svg>
+          ibrahim.ahmd.net@gmail.com
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-socials">
+          <a href="https://github.com/ibrhmahmd" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/Ibrhmahmd" target="_blank"
+            >LinkedIn</a
+          >
+          <a href="https://medium.com/@ibrhmahmd" target="_blank">Medium</a>
+          <a href="mailto:ibrahim.ahmd.net@gmail.com">Email</a>
+        </div>
+        <p>
+          &copy; 2026 Ibrahim Ahmed. Built in conformance with the Precision
+          Engine Design System.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

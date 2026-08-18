@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technical Skills — Ibrahim Ahmed</title>
+    <meta
+      name="description"
+      content="Technical skills index of Ibrahim Ahmed, including C#, Python, SQL, ASP.NET Core, FastAPI, RabbitMQ, Redis, Semantic Kernel, and System Design."
+    />
+
+    <link rel="stylesheet" href="css/design-system.css" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <style>
+      /* Skills Grid layout */
+      .skills-section-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-8);
+        margin-top: var(--spacing-10);
+      }
+
+      @media (min-width: 768px) {
+        .skills-section-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .skills-category-card {
+        background-color: var(--surface-low);
+        border: 1px solid var(--border-ghost);
+      }
+
+      .skills-category-card h3 {
+        font-size: var(--title-lg);
+        color: var(--color-secondary-fixed);
+        border-bottom: 1px solid var(--border-ghost);
+        padding-bottom: var(--spacing-3);
+        margin-bottom: var(--spacing-6);
+      }
+
+      .skill-tags-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-3);
+      }
+
+      .skill-tag {
+        background-color: var(--surface-lowest);
+        color: var(--text-primary);
+        padding: var(--spacing-2) var(--spacing-4);
+        border-radius: var(--radius-md);
+        font-size: var(--body-md);
+        font-family: var(--font-headline);
+        font-weight: 500;
+        border: 1px solid rgba(198, 198, 205, 0.03);
+        transition: var(--transition-fast);
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-2);
+      }
+
+      .skill-tag:hover {
+        background-color: var(--color-secondary);
+        color: var(--text-on-secondary);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 106, 97, 0.15);
+        border-color: var(--color-secondary);
+      }
+
+      /* Highlight specific tags */
+      .skill-tag-primary {
+        border-left: 2px solid var(--color-secondary);
+      }
+
+      .skill-tag-accent {
+        border-left: 2px solid var(--color-tertiary);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container navbar-container">
+        <a href="index.html" class="logo">
+          <span>IBRAHIM</span><span class="logo-terminal">_AHMED</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects/index.html">Projects</a></li>
+          <li><a href="skills.html" class="active">Skills</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Skills Header -->
+    <section class="section" style="padding-top: 120px; padding-bottom: 40px">
+      <div class="container">
+        <h1 class="section-title">Technical Skills Matrix</h1>
+        <p class="section-subtitle">
+          A mapped inventory of technical stacks, engineering paradigms, and
+          tools I utilize.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills Dashboard Grid -->
+    <section
+      class="section"
+      style="
+        background-color: var(--surface-lowest);
+        border-top: 1px solid var(--border-ghost);
+      "
+    >
+      <div class="container">
+        <div class="skills-section-grid">
+          <!-- Category 1: Languages -->
+          <div class="card skills-category-card reveal">
+            <h3>Languages</h3>
+            <div class="skill-tags-wrapper">
+              <span class="skill-tag skill-tag-primary">C#</span>
+              <span class="skill-tag skill-tag-primary">Python</span>
+              <span class="skill-tag skill-tag-primary"
+                >TypeScript / JavaScript</span
+              >
+              <span class="skill-tag skill-tag-accent"
+                >SQL (PostgreSQL / SQL Server)</span
+              >
+              <span class="skill-tag">Bash / Shell</span>
+              <span class="skill-tag">C</span>
+              <span class="skill-tag">LaTeX</span>
+            </div>
+          </div>
+
+          <!-- Category 2: Backend Frameworks -->
+          <div class="card skills-category-card reveal">
+            <h3>Backend Core</h3>
+            <div class="skill-tags-wrapper">
+              <span class="skill-tag skill-tag-primary">FastAPI</span>
+              <span class="skill-tag skill-tag-primary"
+                >ASP.NET Core Web API</span
+              >
+              <span class="skill-tag">Entity Framework Core</span>
+              <span class="skill-tag">LINQ</span>
+              <span class="skill-tag">Pydantic DTOs</span>
+              <span class="skill-tag">Express.js</span>
+              <span class="skill-tag">Node.js</span>
+            </div>
+          </div>
+
+          <!-- Category 3: Databases & Caching -->
+          <div class="card skills-category-card reveal">
+            <h3>Databases & Caching</h3>
+            <div class="skill-tags-wrapper">
+              <span class="skill-tag skill-tag-primary">PostgreSQL</span>
+              <span class="skill-tag skill-tag-primary">MS SQL Server</span>
+              <span class="skill-tag skill-tag-accent"
+                >Redis (Distributed Cache)</span
+              >
+              <span class="skill-tag skill-tag-accent"
+                >Pinecone (Vector DB)</span
+              >
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">SQLite</span>
+            </div>
+          </div>
+
+          <!-- Category 4: AI & Agentic Orchestration -->
+          <div class="card skills-category-card reveal">
+            <h3>AI & Agents</h3>
+            <div class="skill-tags-wrapper">
+              <span class="skill-tag skill-tag-primary">Semantic Kernel</span>
+              <span class="skill-tag skill-tag-primary">RAG Pipelines</span>
+              <span class="skill-tag">LangChain</span>
+              <span class="skill-tag">LLM Orchestration</span>
+              <span class="skill-tag">Ollama API / Runner</span>
+              <span class="skill-tag">Prompt Engineering</span>
+              <span class="skill-tag">Context Engineering</span>
+            </div>
+          </div>
+
+          <!-- Category 5: DevOps & Tools -->
+          <div class="card skills-category-card reveal">
+            <h3>DevOps & Infrastructure</h3>
+            <div class="skill-tags-wrapper">
+              <span class="skill-tag skill-tag-primary">Docker</span>
+              <span class="skill-tag skill-tag-primary">RabbitMQ</span>
+              <span class="skill-tag">Swagger / OpenAPI</span>
+              <span class="skill-tag">Git / GitHub Actions</span>
+              <span class="skill-tag">WebSockets / Socket.io</span>
+              <span class="skill-tag">Postman</span>
+              <span class="skill-tag">Leapcell / Vercel</span>
+            </div>
+          </div>
+
+          <!-- Category 6: Engineering Principles -->
+          <div class="card skills-category-card reveal">
+            <h3>Engineering & Architecture</h3>
+            <div class="skill-tags-wrapper">
+              <span class="skill-tag skill-tag-accent">Clean Architecture</span>
+              <span class="skill-tag skill-tag-accent">System Design</span>
+              <span class="skill-tag skill-tag-accent">Microservices</span>
+              <span class="skill-tag">SOLID Principles</span>
+              <span class="skill-tag">Design Patterns</span>
+              <span class="skill-tag">Event-Driven Architecture</span>
+              <span class="skill-tag">Repository & UoW Patterns</span>
+              <span class="skill-tag">Unit Testing & Mocking</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section
+      class="section reveal"
+      style="
+        background: linear-gradient(
+          135deg,
+          var(--color-secondary) 0%,
+          #004d46 100%
+        );
+        border-top: 1px solid var(--border-ghost);
+      "
+    >
+      <div
+        class="container"
+        style="text-align: center; padding: var(--spacing-12) var(--spacing-8)"
+      >
+        <h2
+          style="
+            font-size: var(--headline-md);
+            color: var(--text-on-secondary);
+            margin-bottom: var(--spacing-4);
+          "
+        >
+          Interested in Working Together?
+        </h2>
+        <!-- <p style="font-size: var(--body-lg); color: rgba(255,255,255,0.85); margin-bottom: var(--spacing-6); max-width: 500px; margin-left: auto; margin-right: auto;">
+        I'm always open to discussing new projects and opportunities.
+      </p> -->
+        <a
+          href="mailto:ibrahim.ahmd.net@gmail.com"
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            font-family: var(--font-headline);
+            font-size: var(--title-lg);
+            font-weight: 600;
+            color: var(--text-on-secondary);
+            text-decoration: none;
+            padding: var(--spacing-4) var(--spacing-8);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: var(--transition-normal);
+          "
+        >
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
+            />
+          </svg>
+          ibrahim.ahmd.net@gmail.com
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-socials">
+          <a href="https://github.com/ibrhmahmd" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/Ibrhmahmd" target="_blank"
+            >LinkedIn</a
+          >
+          <a href="https://medium.com/@ibrhmahmd" target="_blank">Medium</a>
+          <a href="mailto:ibrahim.ahmd.net@gmail.com">Email</a>
+        </div>
+        <p>
+          &copy; 2026 Ibrahim Ahmed. Built in conformance with the Precision
+          Engine Design System.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

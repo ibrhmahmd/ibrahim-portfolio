@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project: Genetic Algorithm Image Reproduction — Ibrahim Ahmed</title>
+  <meta name="description" content="Technical deep dive of Genetic Algorithm Image Reproduction, an evolutionary optimization algorithm for image reconstruction.">
+  
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/project.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="../index.html" class="logo">
+        <span>IBRAHIM</span><span class="logo-terminal">_AHMED</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="index.html" class="active">Projects</a></li>
+        <li><a href="../skills.html">Skills</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Project Header -->
+  <section class="section" style="padding-top: 120px; padding-bottom: 40px;">
+    <div class="container">
+      <div class="project-header-row">
+        <div>
+          <h1 class="project-title-text">Genetic Algorithm Image Reproduction</h1>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-weight: 500; margin-bottom: var(--spacing-4);">
+            Evolutionary Optimization for Image Reconstruction
+          </p>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/ibrhmahmd/Genetic-Algorithm-Image-Reproduction" target="_blank" class="btn btn-secondary">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+      
+      <div class="badge-group" style="margin-top: var(--spacing-4);">
+        <span class="badge badge-tech"><span class="tech-icon tech-dot-python"></span>Python</span>
+        <span class="badge badge-tech"><span class="tech-icon tech-dot-c"></span>C</span>
+        <span class="badge badge-tech"><span class="tech-icon tech-dot-ai"></span>Algorithm</span>
+        <span class="badge badge-tech"><span class="tech-icon tech-dot-numpy"></span>NumPy</span>
+        <span class="badge badge-pattern">Evolutionary Computing</span>
+        <span class="badge badge-pattern">Optimization</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Details & Diagram -->
+  <section class="section" style="background-color: var(--surface-lowest); border-top: 1px solid var(--border-ghost);">
+    <div class="container">
+      
+      <!-- System Architecture Section -->
+      <div class="section-block">
+        <h2 class="block-title">System Architecture</h2>
+        <p class="block-text">
+          This project implements a <strong>genetic algorithm</strong> that progressively reproduces a target image through evolutionary operations. The algorithm uses selection, crossover, and mutation to evolve pixel configurations toward the target.
+        </p>
+        
+        <!-- SVG Diagram Container -->
+        <div class="diagram-wrapper">
+          <div class="diagram-player">
+            <div class="diagram-controls">
+              <button class="diagram-step-btn active" 
+                      data-title="Population Init" 
+                      data-desc="Generate initial random population of image candidates (chromosomes)."
+                      data-nodes="target-image,population-init"
+                      data-paths="path-target-init">
+                Step 1: Init
+              </button>
+              <button class="diagram-step-btn" 
+                      data-title="Fitness Evaluation" 
+                      data-desc="Evaluate each candidate's similarity to target using pixel-wise fitness function."
+                      data-nodes="population-init,fitness-eval"
+                      data-paths="path-init-fitness">
+                Step 2: Evaluate
+              </button>
+              <button class="diagram-step-btn" 
+                      data-title="Selection & Mutation" 
+                      data-desc="Select fittest individuals, apply crossover and mutation to create next generation."
+                      data-nodes="fitness-eval,mutation-engine,generation-output"
+                      data-paths="path-fitness-mutation, path-mutation-output">
+                Step 3: Evolve
+              </button>
+            </div>
+            <div class="diagram-explanation">
+              <h5>Population Init</h5>
+              <p>Generate initial random population of image candidates (chromosomes).</p>
+            </div>
+          </div>
+          
+          <svg class="architecture-diagram" viewBox="0 0 800 400" width="100%" height="auto">
+            <defs>
+              <marker id="arrowT_genetic_algorithm" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0,0 L 8,4 L 0,8 Z" fill="#006a61" /></marker>
+            </defs>
+            <rect width="800" height="400" fill="#f8f9ff" rx="6" />
+            <path d="M 0,50 L 800,50 M 0,100 L 800,100 M 0,150 L 800,150 M 0,200 L 800,200 M 0,250 L 800,250 M 0,300 L 800,300 M 0,350 L 800,350" stroke="#e5eeff" stroke-width="0.5" />
+            <path d="M 100,0 L 100,400 M 200,0 L 200,400 M 300,0 L 300,400 M 400,0 L 400,400 M 500,0 L 500,400 M 600,0 L 600,400 M 700,0 L 700,400" stroke="#e5eeff" stroke-width="0.5" />
+
+            <!-- Target Image -->
+            <rect id="target-image" x="30" y="100" width="140" height="100" fill="#ffffff" stroke="#006a61" stroke-width="2" rx="6" />
+            <text x="100" y="135" fill="#0b1c30" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="14" text-anchor="middle">Target Image</text>
+            <text x="100" y="160" fill="#006a61" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">Reference</text>
+            <text x="100" y="180" fill="#45464d" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">RGB Matrix</text>
+
+            <!-- Population Init -->
+            <rect id="population-init" x="240" y="100" width="140" height="100" fill="#ffffff" stroke="#7671ff" stroke-width="2" rx="6" />
+            <text x="310" y="135" fill="#0b1c30" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="14" text-anchor="middle">Population</text>
+            <text x="310" y="160" fill="#7671ff" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">Random Init</text>
+            <text x="310" y="180" fill="#45464d" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">N Candidates</text>
+
+            <!-- Fitness Eval -->
+            <rect id="fitness-eval" x="440" y="100" width="140" height="120" fill="#ffffff" stroke="#006a61" stroke-width="2" rx="6" />
+            <text x="510" y="130" fill="#0b1c30" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="14" text-anchor="middle">Fitness</text>
+            <text x="510" y="155" fill="#006a61" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">Evaluation</text>
+            <text x="510" y="180" fill="#45464d" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">MSE Calculation</text>
+            <text x="510" y="200" fill="#45464d" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Ranking</text>
+
+            <!-- Mutation Engine -->
+            <rect id="mutation-engine" x="440" y="270" width="140" height="80" fill="#ffffff" stroke="#7671ff" stroke-width="2" rx="6" />
+            <text x="510" y="300" fill="#0b1c30" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="12" text-anchor="middle">Genetic Ops</text>
+            <text x="510" y="325" fill="#45464d" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Crossover + Mutation</text>
+
+            <!-- Generation Output -->
+            <rect id="generation-output" x="650" y="150" width="120" height="100" fill="#ffffff" stroke="#006a61" stroke-width="2" rx="6" />
+            <text x="710" y="185" fill="#0b1c30" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="12" text-anchor="middle">Output</text>
+            <text x="710" y="210" fill="#006a61" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Next Gen</text>
+            <text x="710" y="230" fill="#45464d" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Iterative</text>
+
+            <!-- Connection Paths -->
+            <path id="path-target-init" d="M 170,150 L 240,150" stroke="#006a61" stroke-width="2" stroke-dasharray="5"  marker-end="url(#arrowT_genetic_algorithm)"/>
+            
+            <path id="path-init-fitness" d="M 380,150 L 440,150" stroke="#7671ff" stroke-width="2" />
+            
+            <path id="path-fitness-mutation" d="M 510,220 L 510,270" stroke="#006a61" stroke-width="2"  marker-end="url(#arrowT_genetic_algorithm)"/>
+            
+            <path id="path-mutation-output" d="M 580,310 L 650,210" stroke="#7671ff" stroke-width="2" />
+            <text x="620" y="270" fill="#7671ff" font-family="monospace" font-size="10" text-anchor="middle">Evolve</text>
+            
+            <!-- Feedback Loop -->
+            <path d="M 710,250 L 710,350 L 310,350 L 310,200" stroke="#006a61" stroke-width="1.5" stroke-dasharray="4"  marker-end="url(#arrowT_genetic_algorithm)"/>
+            <text x="510" y="370" fill="#006a61" font-family="monospace" font-size="10" text-anchor="middle">Next Generation Loop</text>
+          </svg>
+        </div>
+      </div>
+      
+      <!-- Key Implementations -->
+      <div class="section-block">
+        <h2 class="block-title">Technical Deep-Dive</h2>
+        
+        <div class="detail-grid">
+          
+          <div class="detail-card">
+            <h4>01. Genetic Operators</h4>
+            <p>
+              Implemented <strong>crossover and mutation</strong> operators that work on pixel-level chromosomes, combining parent traits and introducing random variations.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <h4>02. Fitness Function</h4>
+            <p>
+              Designed a <strong>MSE-based fitness function</strong> that quantifies similarity between candidate images and the target, driving selection pressure.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <h4>03. Selection Strategy</h4>
+            <p>
+              Used <strong>tournament selection</strong> to balance exploration and exploitation, choosing the fittest individuals for reproduction while maintaining diversity.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <h4>04. Hybrid Python/C</h4>
+            <p>
+              Optimized performance-critical operations in <strong>C</strong> while keeping the main algorithm in Python for rapid iteration and visualization.
+            </p>
+          </div>
+          
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Prev/Next Navigation -->
+  <section class="section">
+    <div class="container">
+      <div class="project-nav-bar">
+        <a href="tetris.html" class="project-nav-link">&larr; Tetris Game</a>
+        <a href="tensorflow-classifier.html" class="project-nav-link">TensorFlow Classifier &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-socials">
+        <a href="https://github.com/ibrhmahmd" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/Ibrhmahmd" target="_blank">LinkedIn</a>
+        <a href="https://medium.com/@ibrhmahmd" target="_blank">Medium</a>
+        <a href="mailto:ibrahim.ahmd.net@gmail.com">Email</a>
+      </div>
+      <p>&copy; 2026 Ibrahim Ahmed. Built in conformance with the Precision Engine Design System.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog & Publications — Ibrahim Ahmed</title>
+    <meta
+      name="description"
+      content="Read Ibrahim Ahmed's technical articles and publications on Ollama, EF Core, database migrations, and local LLM integrations."
+    />
+
+    <link rel="stylesheet" href="css/design-system.css" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <style>
+      /* Blog layout */
+      .blog-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-8);
+        margin-top: var(--spacing-10);
+      }
+
+      @media (min-width: 768px) {
+        .blog-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .blog-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .blog-card-meta {
+        font-size: var(--label-sm);
+        color: var(--color-secondary-fixed);
+        font-family: var(--font-headline);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: var(--spacing-2);
+      }
+
+      .blog-card-title {
+        font-size: var(--title-lg);
+        margin-bottom: var(--spacing-3);
+        line-height: 1.4;
+        color: var(--text-primary);
+      }
+
+      .blog-card-excerpt {
+        color: var(--text-secondary);
+        font-size: var(--body-md);
+        line-height: 1.6;
+        flex-grow: 1;
+        margin-bottom: var(--spacing-6);
+      }
+
+      .blog-card-link {
+        font-family: var(--font-headline);
+        font-weight: 500;
+        color: var(--color-secondary-fixed);
+        text-decoration: none;
+        transition: var(--transition-fast);
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-1);
+      }
+
+      .blog-card-link:hover {
+        color: var(--text-primary);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container navbar-container">
+        <a href="index.html" class="logo">
+          <span>IBRAHIM</span><span class="logo-terminal">_AHMED</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects/index.html">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <section class="section" style="padding-top: 120px; padding-bottom: 40px">
+      <div class="container">
+        <h1 class="section-title">Technical Writing & Publications</h1>
+        <p class="section-subtitle">
+          Articles on distributed databases, backend architectures, and local AI
+          agent tooling.
+        </p>
+      </div>
+    </section>
+
+    <!-- Blog Cards Grid Section -->
+    <section
+      class="section"
+      style="
+        background-color: var(--surface-lowest);
+        border-top: 1px solid var(--border-ghost);
+      "
+    >
+      <div class="container">
+        <div class="blog-grid">
+          <!-- Post 1: Starting With Ollama -->
+          <div class="card blog-card reveal">
+            <div class="blog-card-meta">September 2024 · Medium</div>
+            <h3 class="blog-card-title">
+              Starting With Ollama: Run and Customize Large Language Models
+              (LLMs) Locally
+            </h3>
+            <p class="blog-card-excerpt">
+              A comprehensive developer's guide on spinning up local Large
+              Language Models (LLMs) using Ollama. Covers setting up raw
+              interfaces, memory optimizations, and customization of model
+              system parameters locally.
+            </p>
+            <div class="badge-group" style="margin-bottom: var(--spacing-4)">
+              <span class="badge badge-tech">Ollama</span>
+              <span class="badge badge-tech">Local LLM</span>
+              <span class="badge badge-pattern">AI Infrastructures</span>
+            </div>
+            <a
+              href="https://ibrhmahmd.medium.com/starting-with-ollama-cfbdc69be5eb"
+              target="_blank"
+              class="blog-card-link"
+            >
+              Read on Medium &rarr;
+            </a>
+          </div>
+
+          <!-- Post 2: Ollama Models -->
+          <div class="card blog-card reveal">
+            <div class="blog-card-meta">October 2024 · Medium</div>
+            <h3 class="blog-card-title">
+              Introduction to Ollama's LLMs: Basics, Parameters, Templates, and
+              Configurations
+            </h3>
+            <p class="blog-card-excerpt">
+              An in-depth analysis of configuration metrics in Ollama. Explores
+              prompt template binding, temperature variables, context length
+              boundaries, and generating reproducible outputs for agentic
+              operations.
+            </p>
+            <div class="badge-group" style="margin-bottom: var(--spacing-4)">
+              <span class="badge badge-tech">LLM Parameters</span>
+              <span class="badge badge-tech">Prompt Templates</span>
+              <span class="badge badge-pattern">Context Engineering</span>
+            </div>
+            <a
+              href="https://ibrhmahmd.medium.com/introduction-to-ollama-s-models-dd86fc213b90"
+              target="_blank"
+              class="blog-card-link"
+            >
+              Read on Medium &rarr;
+            </a>
+          </div>
+
+          <!-- Post 3: DB First vs Code First -->
+          <div class="card blog-card reveal">
+            <div class="blog-card-meta">October 2024 · Medium</div>
+            <h3 class="blog-card-title">
+              Code First vs. Database First in EF Core: Which Approach Should
+              You Choose?
+            </h3>
+            <p class="blog-card-excerpt">
+              A practical analysis comparing EF Core design patterns.
+              Investigates database synchronization workflows, entity-table
+              mapping protocols, and Alembic-style migrations for enterprise
+              developers.
+            </p>
+            <div class="badge-group" style="margin-bottom: var(--spacing-4)">
+              <span class="badge badge-tech">EF Core</span>
+              <span class="badge badge-tech">SQL Server</span>
+              <span class="badge badge-pattern">Database Migrations</span>
+            </div>
+            <a
+              href="https://ibrhmahmd.medium.com/code-first-vs-database-first-in-ef-core-which-approach-should-you-choose-4c9cb6ea23bc"
+              target="_blank"
+              class="blog-card-link"
+            >
+              Read on Medium &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section
+      class="section reveal"
+      style="
+        background: linear-gradient(
+          135deg,
+          var(--color-secondary) 0%,
+          #004d46 100%
+        );
+        border-top: 1px solid var(--border-ghost);
+      "
+    >
+      <div
+        class="container"
+        style="text-align: center; padding: var(--spacing-12) var(--spacing-8)"
+      >
+        <h2
+          style="
+            font-size: var(--headline-md);
+            color: var(--text-on-secondary);
+            margin-bottom: var(--spacing-4);
+          "
+        >
+          Interested in Working Together?
+        </h2>
+        <!-- <p style="font-size: var(--body-lg); color: rgba(255,255,255,0.85); margin-bottom: var(--spacing-6); max-width: 500px; margin-left: auto; margin-right: auto;">
+        I'm always open to discussing new projects and opportunities.
+      </p> -->
+        <a
+          href="mailto:ibrahim.ahmd.net@gmail.com"
+          style="
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            font-family: var(--font-headline);
+            font-size: var(--title-lg);
+            font-weight: 600;
+            color: var(--text-on-secondary);
+            text-decoration: none;
+            padding: var(--spacing-4) var(--spacing-8);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: var(--transition-normal);
+          "
+        >
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"
+            />
+          </svg>
+          ibrahim.ahmd.net@gmail.com
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-socials">
+          <a href="https://github.com/ibrhmahmd" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/Ibrhmahmd" target="_blank"
+            >LinkedIn</a
+          >
+          <a href="https://medium.com/@ibrhmahmd" target="_blank">Medium</a>
+          <a href="mailto:ibrahim.ahmd.net@gmail.com">Email</a>
+        </div>
+        <p>
+          &copy; 2026 Ibrahim Ahmed. Built in conformance with the Precision
+          Engine Design System.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

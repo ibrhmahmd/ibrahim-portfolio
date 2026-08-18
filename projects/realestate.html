@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project: RealEstate — Ibrahim Ahmed</title>
+  <meta name="description" content="Technical details of RealEstate, an N-tier ASP.NET Core MVC property management system utilizing SQL Server, Repository Patterns, and Entity Framework.">
+  
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/project.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="../index.html" class="logo">
+        <span>IBRAHIM</span><span class="logo-terminal">_AHMED</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="index.html" class="active">Projects</a></li>
+        <li><a href="../skills.html">Skills</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Project Header -->
+  <section class="section" style="padding-top: 120px; padding-bottom: 40px;">
+    <div class="container">
+      <div class="project-header-row">
+        <div>
+          <h1 class="project-title-text">RealEstate</h1>
+          <p style="color: var(--color-secondary-fixed); font-family: var(--font-headline); font-weight: 500; margin-bottom: var(--spacing-4);">
+            Enterprise Property & Lease Management Portal
+          </p>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/ibrhmahmd/RealEstate" target="_blank" class="btn btn-secondary">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+      
+      <div class="badge-group" style="margin-top: var(--spacing-4);">
+        <span class="badge badge-tech"><span class="tech-icon tech-dot-csharp"></span>C#</span>
+        <span class="badge badge-tech">ASP.NET Core MV<span class="tech-icon tech-dot-c"></span>C</span>
+        <span class="badge badge-tech"><span class="tech-icon tech-dot-efcore"></span>EF Core</span>
+        <span class="badge badge-tech"><span class="tech-icon tech-dot-sqlserver"></span>SQL Server</span>
+        <span class="badge badge-tech"><span class="tech-icon tech-dot-bootstrap"></span>Bootstrap</span>
+        <span class="badge badge-tech"><span class="tech-icon tech-dot-jquery"></span>jQuery</span>
+        <span class="badge badge-pattern">N-Tier Architecture</span>
+        <span class="badge badge-pattern">Repository Pattern</span>
+        <span class="badge badge-pattern">Unit of Work</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Details & Diagram -->
+  <section class="section" style="background-color: var(--surface-lowest); border-top: 1px solid var(--border-ghost);">
+    <div class="container">
+      
+      <!-- System Architecture Section -->
+      <div class="section-block">
+        <h2 class="block-title">System Architecture</h2>
+        <p class="block-text">
+          RealEstate uses a standard **N-Tier design** separating presentation concerns from business rules and physical database layers. The Web MVC client issues transactions that resolve down services boundaries, using **Repository & Unit of Work abstractions** over Entity Framework Core to isolate SQL Server queries and ensure proper transactions.
+        </p>
+        
+        <!-- SVG Diagram Container -->
+        <div class="diagram-wrapper">
+          <svg class="architecture-diagram" viewBox="0 0 800 450" width="100%" height="auto">
+            <defs>
+              <marker id="arrowT_realestate" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0,0 L 8,4 L 0,8 Z" fill="#006a61" /></marker>
+            </defs>
+            <!-- Background Grid Gridlines -->
+            <rect width="800" height="450" fill="#0d1321" rx="6" />
+            <path d="M 0,50 L 800,50 M 0,100 L 800,100 M 0,150 L 800,150 M 0,200 L 800,200 M 0,250 L 800,250 M 0,300 L 800,300 M 0,350 L 800,350 M 0,400 L 800,400" stroke="#161f30" stroke-width="0.5"  marker-end="url(#arrowT_realestate)"/>
+            <path d="M 100,0 L 100,450 M 200,0 L 200,450 M 300,0 L 300,450 M 400,0 L 400,450 M 500,0 L 500,450 M 600,0 L 600,450 M 700,0 L 700,450" stroke="#161f30" stroke-width="0.5"  marker-end="url(#arrowT_realestate)"/>
+
+            <!-- User Browser -->
+            <rect x="30" y="185" width="110" height="80" fill="#131b2e" stroke="rgba(198, 198, 205, 0.15)" rx="4" />
+            <text x="85" y="225" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="13" text-anchor="middle">Browser Client</text>
+            <text x="85" y="245" fill="#89f5e7" font-family="system-ui, -apple-system, sans-serif" font-size="9" text-anchor="middle">HTML + jQuery</text>
+
+            <!-- Request Arrow -->
+            <path d="M 140,225 L 180,225" stroke="#00bfa5" stroke-width="1.5"  marker-end="url(#arrowT_realestate)"/>
+
+            <!-- Presentation Layer (MVC) -->
+            <rect x="180" y="100" width="140" height="250" fill="#131b2e" stroke="#7671ff" rx="4" />
+            <text x="250" y="130" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="13" text-anchor="middle">Presentation Layer</text>
+            <rect x="195" y="160" width="110" height="50" fill="#0d1321" stroke="rgba(255,255,255,0.05)" rx="4" />
+            <text x="250" y="190" fill="#a39fff" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">MVC Controllers</text>
+            <rect x="195" y="230" width="110" height="50" fill="#0d1321" stroke="rgba(255,255,255,0.05)" rx="4" />
+            <text x="250" y="260" fill="#a39fff" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">Razor Views</text>
+            <text x="250" y="325" fill="#a39fff" font-family="system-ui, -apple-system, sans-serif" font-size="9" text-anchor="middle">Cookie Auth Filters</text>
+
+            <!-- Link to Services -->
+            <path d="M 320,225 L 360,225" stroke="#00bfa5" stroke-width="1.5"  marker-end="url(#arrowT_realestate)"/>
+
+            <!-- Business Logic Layer (BLL) -->
+            <rect x="360" y="100" width="140" height="250" fill="#131b2e" stroke="#006a61" rx="4" />
+            <text x="430" y="130" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="13" text-anchor="middle">Business Layer</text>
+            <rect x="375" y="170" width="110" height="70" fill="#0d1321" stroke="rgba(255,255,255,0.05)" rx="4" />
+            <text x="430" y="200" fill="#89f5e7" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">Core Services</text>
+            <text x="430" y="220" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="9" text-anchor="middle">Business Rules</text>
+            <text x="430" y="325" fill="#89f5e7" font-family="system-ui, -apple-system, sans-serif" font-size="9" text-anchor="middle">Validation Slices</text>
+
+            <!-- Link to DAL -->
+            <path d="M 500,225 L 540,225" stroke="#00bfa5" stroke-width="1.5"  marker-end="url(#arrowT_realestate)"/>
+
+            <!-- Data Access Layer (DAL) -->
+            <rect x="540" y="100" width="140" height="250" fill="#131b2e" stroke="#ff5f56" rx="4" />
+            <text x="610" y="130" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="13" text-anchor="middle">Data Access</text>
+            <rect x="555" y="170" width="110" height="55" fill="#0d1321" stroke="rgba(255,255,255,0.05)" rx="4" />
+            <text x="610" y="195" fill="#ff5f56" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">Repositories</text>
+            <rect x="555" y="240" width="110" height="55" fill="#0d1321" stroke="rgba(255,255,255,0.05)" rx="4" />
+            <text x="610" y="265" fill="#ff5f56" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">Unit of Work</text>
+            <text x="610" y="325" fill="#ff5f56" font-family="system-ui, -apple-system, sans-serif" font-size="9" text-anchor="middle">Entity Framework Core</text>
+
+            <!-- Link to DB -->
+            <path d="M 680,225 L 700,225" stroke="#00bfa5" stroke-width="1.5"  marker-end="url(#arrowT_realestate)"/>
+
+            <!-- SQL Server -->
+            <rect x="700" y="150" width="80" height="150" fill="#00bfa5" rx="4" />
+            <text x="740" y="200" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="12" text-anchor="middle">SQL Server</text>
+            <text x="740" y="225" fill="#003732" font-family="system-ui, -apple-system, sans-serif" font-size="9" text-anchor="middle">Properties</text>
+            <text x="740" y="245" fill="#003732" font-family="system-ui, -apple-system, sans-serif" font-size="9" text-anchor="middle">Tenants</text>
+            <text x="740" y="265" fill="#003732" font-family="system-ui, -apple-system, sans-serif" font-size="9" text-anchor="middle">Leases</text>
+          </svg>
+        </div>
+      </div>
+      
+      <!-- Key Implementations accordion -->
+      <div class="section-block">
+        <h2 class="block-title">Technical Deep-Dive</h2>
+        
+        <div class="detail-grid">
+          
+          <div class="detail-card">
+            <h4>01. N-Tier Layered Decoupling</h4>
+            <p>
+              Separated the architecture into Presentation, Core Business logic, and Data Access projects. This decoupling ensures database engine migrations (e.g. SQLite to SQL Server) can be made without touching controllers or views.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <h4>02. Repository & Unit of Work Patterns</h4>
+            <p>
+              By abstracts EF Core DbContext calls behind a unified **Unit of Work** wrapper, the platform guarantees that transactional processes (such as recording a lease and verifying tenant deposits) succeed or fail together.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <h4>03. Cookie & Role Authentication</h4>
+            <p>
+              Implemented claims-based cookie authentication filters native to ASP.NET Core. Users are grouped into Admin / Tenant roles to isolate management endpoints from student client portal views.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <h4>04. Database Persistence & Indices</h4>
+            <p>
+              Optimized property queries by implementing clustered indexes on foreign key relationship columns (such as PropertyId on lease records), reducing SQL Server lookup times under database tests.
+            </p>
+          </div>
+          
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-socials">
+        <a href="https://github.com/ibrhmahmd" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/Ibrhmahmd" target="_blank">LinkedIn</a>
+        <a href="https://medium.com/@ibrhmahmd" target="_blank">Medium</a>
+        <a href="mailto:ibrahim.ahmd.net@gmail.com">Email</a>
+      </div>
+      <p>&copy; 2026 Ibrahim Ahmed. Built in conformance with the Precision Engine Design System.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

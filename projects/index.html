@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects Catalog — Ibrahim Ahmed</title>
+  <meta name="description" content="Explore Ibrahim Ahmed's backend developer projects catalog. View detailed microservice systems, Python API monoliths, and custom libraries.">
+  
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/main.css">
+  
+  <style>
+    /* Projects Grid Layout */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-8);
+      margin-top: var(--spacing-10);
+    }
+    
+    @media(min-width: 768px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media(min-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .project-card-title {
+      font-size: var(--title-lg);
+      margin-bottom: var(--spacing-2);
+      color: var(--text-primary);
+    }
+    
+    .project-card-desc {
+      color: var(--text-secondary);
+      font-size: var(--body-md);
+      margin-bottom: var(--spacing-6);
+      flex-grow: 1;
+      line-height: 1.6;
+    }
+    
+    .project-card-links {
+      display: flex;
+      gap: var(--spacing-4);
+      margin-top: var(--spacing-6);
+      border-top: 1px solid var(--border-ghost);
+      padding-top: var(--spacing-4);
+    }
+    
+    .project-card-links a {
+      font-family: var(--font-headline);
+      font-weight: 500;
+      color: var(--color-secondary);
+      text-decoration: none;
+      font-size: var(--body-md);
+      transition: var(--transition-fast);
+    }
+    
+    .project-card-links a:hover {
+      color: var(--text-primary);
+    }
+    
+    .category-header {
+      font-size: var(--headline-sm);
+      color: var(--text-primary);
+      margin-top: var(--spacing-16);
+      margin-bottom: var(--spacing-6);
+      padding-bottom: var(--spacing-2);
+      border-bottom: 2px solid var(--color-secondary);
+      display: inline-block;
+    }
+    
+    .category-header:first-of-type {
+      margin-top: 0;
+    }
+
+    /* GitHub Repos Grid */
+    .github-repos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--spacing-4);
+    }
+
+    .github-repo-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--surface-lowest);
+      border: 1px solid var(--border-ghost);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-5);
+      text-decoration: none;
+      transition: var(--transition-normal);
+    }
+
+    .github-repo-card:hover {
+      border-color: var(--color-secondary);
+      box-shadow: 0 4px 16px rgba(0, 106, 97, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .github-repo-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: var(--spacing-2);
+      color: var(--color-secondary);
+    }
+
+    .github-repo-name {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: var(--body-md);
+      color: var(--text-primary);
+    }
+
+    .github-repo-desc {
+      color: var(--text-secondary);
+      font-size: var(--label-sm);
+      line-height: 1.5;
+      flex-grow: 1;
+      margin-bottom: var(--spacing-3);
+    }
+
+    .github-repo-meta {
+      display: flex;
+      gap: var(--spacing-3);
+      font-size: var(--label-sm);
+      color: var(--text-muted);
+    }
+
+    .github-repo-lang {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="../index.html" class="logo">
+        <span>IBRAHIM</span><span class="logo-terminal">_AHMED</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="index.html" class="active">Projects</a></li>
+        <li><a href="../skills.html">Skills</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Projects Header -->
+  <section class="section" style="padding-top: 120px; padding-bottom: 40px;">
+    <div class="container">
+      <h1 class="section-title">Projects Catalog</h1>
+      <p class="section-subtitle">A collection of custom backend APIs, microservices, and system deployments.</p>
+    </div>
+  </section>
+
+  <!-- Projects Grid Section -->
+  <section class="section" style="background-color: var(--surface-lowest); border-top: 1px solid var(--border-ghost);">
+    <div class="container">
+      
+      <!-- Category 1: Production Flagships & Microservices -->
+      <h2 class="category-header">Production Flagships & Microservices</h2>
+      <div class="projects-grid">
+        
+        <!-- Card 1: Techno Terminal -->
+        <div class="card project-card reveal">
+          <h3 class="project-card-title">Techno Terminal</h3>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-size: var(--label-sm); margin-bottom: var(--spacing-3); font-weight: 600; text-transform: uppercase;">
+            Production System · FastAPI
+          </p>
+          <p class="project-card-desc">
+            Comprehensive CRM & operations platform managing student lifecycles, financial transactions, and academic views. Designed as a FastAPI modular monolith with alembic tracking and 94% test coverage.
+          </p>
+          <div class="badge-group">
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-fastapi"></span>FastAPI</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-postgresql"></span>PostgreSQL</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-supabase"></span>Supabase JWT</span>
+            <span class="badge badge-pattern">Modular Monolith</span>
+          </div>
+          <div class="project-card-links">
+            <a href="techno-terminal.html">Read Specs &rarr;</a>
+            <a href="https://github.com/ibrhmahmd/techno-terminal" target="_blank">GitHub</a>
+            <a href="https://techno-terminal-ibrhmahmd2165-00zb1kxm.leapcell.dev" target="_blank">Live Site</a>
+          </div>
+        </div>
+
+        <!-- Card 2: OllamaNet Architecture -->
+        <div class="card project-card reveal">
+          <h3 class="project-card-title">OllamaNet Architecture</h3>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-size: var(--label-sm); margin-bottom: var(--spacing-3); font-weight: 600; text-transform: uppercase;">
+            Microservices · .NET 9
+          </p>
+          <p class="project-card-desc">
+            Modular LLM platform built using ASP.NET Core microservices. Implements Ocelot API Gateway, RabbitMQ messaging broker, Redis cache buffers, and Polly resilience retry patterns.
+          </p>
+          <div class="badge-group">
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-dotnet"></span>.NET 9</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-rabbitmq"></span>RabbitMQ</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-ocelot"></span>Ocelot</span>
+            <span class="badge badge-pattern">Microservices</span>
+          </div>
+          <div class="project-card-links">
+            <a href="ollamanet.html">Read Specs &rarr;</a>
+            <a href="https://github.com/ollamaNet/OllamaNet-Architecture" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Card 3: ConversationService -->
+        <div class="card project-card reveal">
+          <h3 class="project-card-title">ConversationService</h3>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-size: var(--label-sm); margin-bottom: var(--spacing-3); font-weight: 600; text-transform: uppercase;">
+            AI Microservice · .NET
+          </p>
+          <p class="project-card-desc">
+            Core microservice driving real-time AI conversations, RAG document integrations, and history serialization. Uses Microsoft Semantic Kernel and Pinecone vector indexes.
+          </p>
+          <div class="badge-group">
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-aspnet"></span>ASP.NET Core</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-pinecone"></span>Pinecone</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-semantickernel"></span>Semantic Kernel</span>
+            <span class="badge badge-pattern">RAG Pipeline</span>
+          </div>
+          <div class="project-card-links">
+            <a href="conversation-service.html">Read Specs &rarr;</a>
+            <a href="https://github.com/ollamaNet/OllamaNet-Architecture/tree/master/ConversationService" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Card 4: LLM-Inference -->
+        <div class="card project-card reveal">
+          <h3 class="project-card-title">LLM Inference</h3>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-size: var(--label-sm); margin-bottom: var(--spacing-3); font-weight: 600; text-transform: uppercase;">
+            Distributed ML · Python
+          </p>
+          <p class="project-card-desc">
+            Exposes local Ollama models as public REST APIs by orchestrating secure ngrok tunneling and publishing connections dynamically over a RabbitMQ exchange registry.
+          </p>
+          <div class="badge-group">
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-python"></span>Python</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-ollama"></span>Ollama</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-ngrok"></span>ngrok</span>
+            <span class="badge badge-pattern">Distributed Routing</span>
+          </div>
+          <div class="project-card-links">
+            <a href="llm-inference.html">Read Specs &rarr;</a>
+            <a href="https://github.com/ibrhmahmd/Inference-Engine" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Card 5: RealEstate -->
+        <div class="card project-card reveal">
+          <h3 class="project-card-title">RealEstate System</h3>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-size: var(--label-sm); margin-bottom: var(--spacing-3); font-weight: 600; text-transform: uppercase;">
+            Enterprise · ASP.NET Core
+          </p>
+          <p class="project-card-desc">
+            An N-Tier property management application designed with ASP.NET Core MVC. Integrates unit of work layers, generic repository patterns, and cookies role configurations.
+          </p>
+          <div class="badge-group">
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-csharp"></span>C#</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-sqlserver"></span>SQL Server</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-efcore"></span>EF Core</span>
+            <span class="badge badge-pattern">N-Tier Architecture</span>
+          </div>
+          <div class="project-card-links">
+            <a href="realestate.html">Read Specs &rarr;</a>
+            <a href="https://github.com/ibrhmahmd/RealEstate" target="_blank">GitHub</a>
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- Category 2: Frameworks, APIs & Libraries -->
+      <h2 class="category-header">Frameworks, APIs & Libraries</h2>
+      <div class="projects-grid">
+        
+        <!-- Card 6: NeoStreamJS -->
+        <div class="card project-card reveal">
+          <h3 class="project-card-title">NeoStreamJS</h3>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-size: var(--label-sm); margin-bottom: var(--spacing-3); font-weight: 600; text-transform: uppercase;">
+            Reactive Framework · Node.js
+          </p>
+          <p class="project-card-desc">
+            Zero-build reactive web framework built on Node.js, Express, and bidirectional WebSockets for real-time state synchronization across client-server architectures.
+          </p>
+          <div class="badge-group">
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-nodejs"></span>Node.js</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-express"></span>Express</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-websockets"></span>WebSockets</span>
+            <span class="badge badge-pattern">Reactive Architecture</span>
+          </div>
+          <div class="project-card-links">
+            <a href="neostream.html">Read Specs &rarr;</a>
+            <a href="https://github.com/ibrhmahmd/NeoStreamJS" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Card 7: Speech-to-Text Transcription -->
+        <div class="card project-card reveal">
+          <h3 class="project-card-title">Speech-to-Text Transcription</h3>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-size: var(--label-sm); margin-bottom: var(--spacing-3); font-weight: 600; text-transform: uppercase;">
+            Audio Processing · FastAPI
+          </p>
+          <p class="project-card-desc">
+            FastAPI audio processing service supporting real-time recording, WAV processing, and Arabic language acoustic models for speech recognition.
+          </p>
+          <div class="badge-group">
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-fastapi"></span>FastAPI</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-python"></span>Python</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-audio"></span>Audio Processing</span>
+            <span class="badge badge-pattern">Real-time Streaming</span>
+          </div>
+          <div class="project-card-links">
+            <a href="audio-recognition.html">Read Specs &rarr;</a>
+            <a href="https://github.com/ibrhmahmd/Speech-to-Text-Transcription" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Card 8: Ollama HTTP Factory & AIChat DB Schema -->
+        <div class="card project-card reveal">
+          <h3 class="project-card-title">Ollama HTTP Factory</h3>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-size: var(--label-sm); margin-bottom: var(--spacing-3); font-weight: 600; text-transform: uppercase;">
+            Resilience Library · C#
+          </p>
+          <p class="project-card-desc">
+            High-resilience C# HttpClient library with connection pooling, retry policies, and relational AI chat schema for distributed LLM deployments.
+          </p>
+          <div class="badge-group">
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-csharp"></span>C#</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-dotnet"></span>.NET</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-dotnet"></span>HttpClient</span>
+            <span class="badge badge-pattern">Resilience Patterns</span>
+          </div>
+          <div class="project-card-links">
+            <a href="ollama-http-factory.html">Read Specs &rarr;</a>
+            <a href="https://github.com/ibrhmahmd/OllamaHttpFactory" target="_blank">GitHub</a>
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- Category 3: Machine Learning, Games & Algorithms -->
+      <h2 class="category-header">Machine Learning, Games & Algorithms</h2>
+      <div class="projects-grid">
+        
+        <!-- Card 9: TensorFlow Flower Classifier -->
+        <div class="card project-card reveal">
+          <h3 class="project-card-title">TensorFlow Flower Classifier</h3>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-size: var(--label-sm); margin-bottom: var(--spacing-3); font-weight: 600; text-transform: uppercase;">
+            Computer Vision · Python
+          </p>
+          <p class="project-card-desc">
+            Computer vision CNN with data augmentation and dropout layers achieving >90% validation accuracy for flower species classification.
+          </p>
+          <div class="badge-group">
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-tensorflow"></span>TensorFlow</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-python"></span>Python</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-tensorflow"></span>CNN</span>
+            <span class="badge badge-pattern">Deep Learning</span>
+          </div>
+          <div class="project-card-links">
+            <a href="tensorflow-classifier.html">Read Specs &rarr;</a>
+            <a href="https://github.com/ibrhmahmd/TensorFlow-Flower-Classifier" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Card 10: YouTube Video Downloader -->
+        <div class="card project-card reveal">
+          <h3 class="project-card-title">YouTube Video Downloader</h3>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-size: var(--label-sm); margin-bottom: var(--spacing-3); font-weight: 600; text-transform: uppercase;">
+            Streamlit App · Python
+          </p>
+          <p class="project-card-desc">
+            Streamlit asynchronous download engine with 3-tier architecture, Factory and Strategy patterns for flexible video processing pipelines.
+          </p>
+          <div class="badge-group">
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-streamlit"></span>Streamlit</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-python"></span>Python</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-async"></span>Async</span>
+            <span class="badge badge-pattern">Factory + Strategy</span>
+          </div>
+          <div class="project-card-links">
+            <a href="youtube-downloader.html">Read Specs &rarr;</a>
+            <a href="https://github.com/ibrhmahmd/YouTube-Video-Downloader" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Card 11: WPF Tetris Game -->
+        <div class="card project-card reveal">
+          <h3 class="project-card-title">WPF Tetris Game</h3>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-size: var(--label-sm); margin-bottom: var(--spacing-3); font-weight: 600; text-transform: uppercase;">
+            Desktop Game · C#
+          </p>
+          <p class="project-card-desc">
+            C# desktop game implementing Model-View separation, Factory Method block generation, and game loop state machines for classic Tetris gameplay.
+          </p>
+          <div class="badge-group">
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-csharp"></span>C#</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-wpf"></span>WPF</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-xaml"></span>XAML</span>
+            <span class="badge badge-pattern">State Machine</span>
+          </div>
+          <div class="project-card-links">
+            <a href="tetris.html">Read Specs &rarr;</a>
+            <a href="https://github.com/ibrhmahmd/WPF-Tetris-Game" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Card 12: Genetic Algorithm Image Reproduction -->
+        <div class="card project-card reveal">
+          <h3 class="project-card-title">Genetic Algorithm Image Reproduction</h3>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-size: var(--label-sm); margin-bottom: var(--spacing-3); font-weight: 600; text-transform: uppercase;">
+            Evolutionary Algorithm · Python
+          </p>
+          <p class="project-card-desc">
+            Evolutionary optimization algorithm in Python and C for progressive image reconstruction using genetic operators and fitness evaluation.
+          </p>
+          <div class="badge-group">
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-python"></span>Python</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-c"></span>C</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-ai"></span>Algorithm</span>
+            <span class="badge badge-pattern">Evolutionary Computing</span>
+          </div>
+          <div class="project-card-links">
+            <a href="genetic-algorithm.html">Read Specs &rarr;</a>
+            <a href="https://github.com/ibrhmahmd/Genetic-Algorithm-Image-Reproduction" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Card: Ibn Battuta Game -->
+        <div class="card project-card reveal">
+          <h3 class="project-card-title">Ibn Battuta Game</h3>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-size: var(--label-sm); margin-bottom: var(--spacing-3); font-weight: 600; text-transform: uppercase;">
+            Historical Exploration · Python
+          </p>
+          <p class="project-card-desc">
+            Pygame Zero exploration game across 5 historical cities (Tangier, Fez, Cairo, Damascus, Timbuktu). World map navigation, mission overlays, and background audio.
+          </p>
+          <div class="badge-group">
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-python"></span>Python</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-python"></span>Pygame Zero</span>
+            <span class="badge badge-pattern">2D Game Dev</span>
+            <span class="badge badge-pattern">Screen-State</span>
+          </div>
+          <div class="project-card-links">
+            <a href="ibn-battota-game.html">Read Specs &rarr;</a>
+            <a href="https://github.com/ibrhmahmd/ibn-battota-game" target="_blank">GitHub</a>
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- Category 4: Document Generation & Internal Tools -->
+      <h2 class="category-header">Document Generation & Internal Tools</h2>
+      <div class="projects-grid">
+
+        <!-- Card: Certificate Generator -->
+        <div class="card project-card reveal">
+          <h3 class="project-card-title">Certificate Generator</h3>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-size: var(--label-sm); margin-bottom: var(--spacing-3); font-weight: 600; text-transform: uppercase;">
+            FastAPI Service · Python
+          </p>
+          <p class="project-card-desc">
+            Certificate management service with QR verification, PDF/HTML rendering via Playwright, audit logging, and a full HTMX-powered management UI. 14 track-specific themes.
+          </p>
+          <div class="badge-group">
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-fastapi"></span>FastAPI</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-python"></span>Python</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-sqlmodel"></span>SQLModel</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-javascript"></span>HTMX</span>
+            <span class="badge badge-pattern">Vertical Slice</span>
+            <span class="badge badge-pattern">Unit of Work</span>
+          </div>
+          <div class="project-card-links">
+            <a href="certificate-generator.html">Read Specs &rarr;</a>
+            <a href="https://github.com/ibrhmahmd/techno-future-certificates" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Card: Student Profiles -->
+        <div class="card project-card reveal">
+          <h3 class="project-card-title">Student Profiles</h3>
+          <p style="color: var(--color-secondary); font-family: var(--font-headline); font-size: var(--label-sm); margin-bottom: var(--spacing-3); font-weight: 600; text-transform: uppercase;">
+            Document Generator · Python
+          </p>
+          <p class="project-card-desc">
+            Bilingual (EN/AR) competition document generator with Streamlit GUI, CLI batch processing, SVG radar charts, and Playwright PDF rendering for team timelines and student profiles.
+          </p>
+          <div class="badge-group">
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-python"></span>Python</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-python"></span>Streamlit</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-python"></span>Playwright</span>
+            <span class="badge badge-tech"><span class="tech-icon tech-dot-svg"></span>SVG</span>
+            <span class="badge badge-pattern">Config-Driven</span>
+            <span class="badge badge-pattern">Bilingual</span>
+          </div>
+          <div class="project-card-links">
+            <a href="student-profiles.html">Read Specs &rarr;</a>
+            <a href="https://github.com/ibrhmahmd/student_profiles_document_generator" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Category 5: More on GitHub -->
+      <h2 class="category-header">More on GitHub</h2>
+      <p style="color: var(--text-secondary); margin-bottom: var(--spacing-6); max-width: 700px;">
+        Additional projects, utilities, experiments, and course materials. All open source.
+      </p>
+      <div class="github-repos-grid">
+        
+        <a href="https://github.com/ibrhmahmd/techno_terminal_UI" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">techno_terminal_UI</span>
+          </div>
+          <p class="github-repo-desc">TypeScript frontend for Techno Terminal</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-typescript"></span>TypeScript</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/student_profiles_document_generator" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">student_profiles_document_generator</span>
+          </div>
+          <p class="github-repo-desc">Automated student profile document generation</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-python"></span>Python</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/crab-quests" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">crab-quests</span>
+          </div>
+          <p class="github-repo-desc">Python quest game</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-python"></span>Python</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/Logger-library" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">Logger-library</span>
+          </div>
+          <p class="github-repo-desc">Reusable C# logging library</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-csharp"></span>C#</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/MDBTF-Python-Filter" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">MDBTF-Python-Filter</span>
+          </div>
+          <p class="github-repo-desc">MDBTF data filtering tool in Python</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-python"></span>Python</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/pdf_slicer" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">pdf_slicer</span>
+          </div>
+          <p class="github-repo-desc">PDF page extraction tool</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-python"></span>Python</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/Nano_pdf_tool" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">Nano_pdf_tool</span>
+          </div>
+          <p class="github-repo-desc">Lightweight PDF utility tool</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-python"></span>Python</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/Walan_task" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">Walan_task</span>
+          </div>
+          <p class="github-repo-desc">C# implementation task</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-csharp"></span>C#</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/ITRoots-task" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">ITRoots-task</span>
+          </div>
+          <p class="github-repo-desc">C# technical task</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-csharp"></span>C#</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/grid_selector" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">grid_selector</span>
+          </div>
+          <p class="github-repo-desc">Grid selection algorithm in Python</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-python"></span>Python</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/Encryption" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">Encryption</span>
+          </div>
+          <p class="github-repo-desc">C++ encryption implementations</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-c"></span>C++</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/warsha" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">warsha</span>
+          </div>
+          <p class="github-repo-desc">CNC workshop management desktop app</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-csharp"></span>C#</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/YOLO-Playground" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">YOLO-Playground</span>
+          </div>
+          <p class="github-repo-desc">YOLO object detection experiments</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-python"></span>Python</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/RPS-web" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">RPS-web</span>
+          </div>
+          <p class="github-repo-desc">Rock Paper Scissors web game</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-python"></span>Python</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/Seeding-AI-Models-PipeLine" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">Seeding-AI-Models-PipeLine</span>
+          </div>
+          <p class="github-repo-desc">AI model seeding pipeline</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-python"></span>Python</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/FlexCat-7e" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">FlexCat-7e</span>
+          </div>
+          <p class="github-repo-desc">TypeScript utility library</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-typescript"></span>TypeScript</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/techno-future-certificates" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">techno-future-certificates</span>
+          </div>
+          <p class="github-repo-desc">Certificate generation tool</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-python"></span>Python</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/SalemMusicBot" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">SalemMusicBot</span>
+          </div>
+          <p class="github-repo-desc">Discord music bot</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-javascript"></span>JavaScript</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/ibrhmahmd/MVC_ITI_APP" target="_blank" class="github-repo-card">
+          <div class="github-repo-header">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.25.25 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
+            <span class="github-repo-name">MVC_ITI_APP</span>
+          </div>
+          <p class="github-repo-desc">ASP.NET Core MVC course project</p>
+          <div class="github-repo-meta">
+            <span class="github-repo-lang"><span class="tech-icon tech-dot-csharp"></span>C#</span>
+          </div>
+        </a>
+
+      </div>
+      <div style="margin-top: var(--spacing-8); text-align: center;">
+        <a href="https://github.com/ibrhmahmd?tab=repositories" target="_blank" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          View All 42 Repositories on GitHub
+        </a>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-socials">
+        <a href="https://github.com/ibrhmahmd" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/Ibrhmahmd" target="_blank">LinkedIn</a>
+        <a href="https://medium.com/@ibrhmahmd" target="_blank">Medium</a>
+        <a href="mailto:ibrahim.ahmd.net@gmail.com">Email</a>
+      </div>
+      <p>&copy; 2026 Ibrahim Ahmed. Built in conformance with the Precision Engine Design System.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
